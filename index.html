@@ -1836,8 +1836,17 @@
 
     <div class="community-layout">
       <aside class="endorsement-sidebar" aria-labelledby="endorsementTitle">
-        <h3 id="endorsementTitle">Stand with Satyam’s family</h3>
-        <p class="community-prompt">Add your name and support this appeal. Approved endorsements remain visible here as the list rotates.</p>
+        <h3 id="endorsementTitle">Endorsements</h3>
+        <p class="community-prompt">People standing with Satyam’s family.</p>
+
+        <div class="endorsement-list" id="endorsementList" aria-live="polite">
+          <div class="comments-fallback">Loading endorsements…</div>
+        </div>
+      </aside>
+
+      <div class="community-main">
+        <h3>Endorse this appeal</h3>
+        <p class="community-prompt">Add your name, designation, and organisation to stand with Satyam’s family.</p>
 
         <form class="community-form" id="endorsementForm">
           <div class="community-field">
@@ -1860,12 +1869,7 @@
           <div class="community-status" id="endorsementStatus" aria-live="polite"></div>
         </form>
 
-        <div class="endorsement-list" id="endorsementList" aria-live="polite">
-          <div class="comments-fallback">Loading endorsements…</div>
-        </div>
-      </aside>
-
-      <div class="community-main">
+        <hr class="community-divider">
         <h3>Comments &amp; messages</h3>
         <p class="community-prompt">Leave a message of support for the family.</p>
 
@@ -1886,15 +1890,6 @@
           <div class="comments-fallback">Loading messages…</div>
         </div>
 
-        <div class="admin-panel" id="adminPanel">
-          <h3>Pending moderation</h3>
-          <div class="admin-list" id="adminList"></div>
-        </div>
-
-        <div class="admin-form" style="margin-top:22px;">
-          <button class="secondary" type="button" id="adminAccessButton">Admin access</button>
-          <div class="community-status" id="adminStatus" aria-live="polite"></div>
-        </div>
       </div>
     </div>
 
