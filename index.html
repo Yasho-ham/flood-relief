@@ -739,19 +739,6 @@
     /* ================= PERSONAL INTRO ================= */
 
     .intro-card { margin-top: 18px; }
-    .intro-preview {
-      max-height: 210px;
-      overflow: hidden;
-      position: relative;
-    }
-    .intro-preview::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 58px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0), #ffffff 78%);
-      pointer-events: none;
-    }
     .intro-text, .intro-full p {
       color: #334155;
       font-size: 15px;
@@ -807,31 +794,6 @@
       line-height: 1.45;
     }
 
-    /* ================= AUTHENTICITY PROOF ================= */
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 16px;
-    }
-    .proof-slot {
-      min-height: 240px;
-      border: 2px dashed #cbd5e1;
-      border-radius: 16px;
-      background: #f8fafc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 18px;
-      overflow: hidden;
-    }
-    .proof-number { font-size: 28px; margin-bottom: 8px; }
-    .proof-title { font-size: 15px; font-weight: 800; color: #0f172a; }
-    .proof-note { margin-top: 5px; font-size: 12px; line-height: 1.45; color: #64748b; }
-
     /* ================= ARTICLE QR ================= */
 
     .article-verify {
@@ -855,7 +817,6 @@
     .article-verify-note { color: #64748b; font-size: 12px; line-height: 1.5; }
 
     @media (max-width: 700px) {
-      .proof-grid { grid-template-columns: 1fr; }
       .photo-grid { grid-template-columns: 1fr; }
       .article-verify { grid-template-columns: 1fr; text-align: center; }
       #articleQr { margin: auto; }
@@ -942,7 +903,7 @@
        ===================================================== -->
 
   <section class="card photo-updates" aria-labelledby="photoUpdatesTitle">
-    <h2 id="photoUpdatesTitle">Photos &amp; Updates</h2>
+    <h2 id="photoUpdatesTitle">Proof &amp; Updates</h2>
     <p class="note" style="margin-bottom:0;">
       Recent photos with my family, friends, and the Dakshana community.
     </p>
@@ -986,41 +947,6 @@
         </div>
         <figcaption>At Dakshana</figcaption>
       </figure>
-    </div>
-  </section>
-
-
-  <!-- =====================================================
-       AUTHENTICITY PROOF
-       ===================================================== -->
-
-  <section class="card">
-    <h2>Proof &amp; Updates</h2>
-    <p class="note" style="margin-bottom:0;">
-      I am sharing photographs and supporting material below so that anyone considering helping can understand the situation and verify the appeal.
-    </p>
-
-    <div class="proof-grid">
-      <div class="proof-slot">
-        <div class="proof-number">📷</div>
-        <div class="proof-title">Image Placeholder 1</div>
-        <div class="proof-note">Replace with a photo showing the damage.</div>
-      </div>
-      <div class="proof-slot">
-        <div class="proof-number">📷</div>
-        <div class="proof-title">Image Placeholder 2</div>
-        <div class="proof-note">Replace with another flood / home photograph.</div>
-      </div>
-      <div class="proof-slot">
-        <div class="proof-number">📄</div>
-        <div class="proof-title">Image Placeholder 3</div>
-        <div class="proof-note">Replace with relevant supporting documentation.</div>
-      </div>
-      <div class="proof-slot">
-        <div class="proof-number">📷</div>
-        <div class="proof-title">Image Placeholder 4</div>
-        <div class="proof-note">Replace with another authenticity / family update image.</div>
-      </div>
     </div>
   </section>
 
