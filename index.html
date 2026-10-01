@@ -274,6 +274,41 @@
       margin-top: 22px;
     }
 
+    
+    /* ================= DIALOG ================= */
+    dialog {
+      border: none;
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 450px;
+      width: 90%;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, .15);
+      background: #ffffff;
+      color: #0f172a;
+    }
+    dialog::backdrop {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .dialog-header h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .dialog-close {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      padding: 0;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
     /* ================= TOAST ================= */
 
     #toast {
@@ -661,9 +696,7 @@
     }
 
     .community-layout {
-      display: grid;
-      grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
-      gap: 22px;
+      display: block;
       margin-top: 16px;
     }
 
@@ -675,6 +708,20 @@
       border: 1px solid #e2e8f0;
       border-radius: 16px;
       background: #f8fafc;
+      margin-bottom: 22px;
+    }
+
+    @media (min-width: 1350px) {
+      .endorsement-sidebar {
+        position: fixed;
+        top: 50%;
+        left: max(20px, calc(50vw - 450px - 280px));
+        transform: translateY(-50%);
+        width: 260px;
+        z-index: 50;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, .06);
+        margin-bottom: 0;
+      }
     }
 
     .endorsement-sidebar h3, .community-main h3 {
@@ -766,16 +813,8 @@
     .admin-actions button { font-size: 12px; }
 
     @media (max-width: 700px) {
-      .community-layout { grid-template-columns: 1fr; }
-      .endorsement-sidebar { position: static; }
-    }
-
-    /* ================= CONTACT ================= */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      .community-layout {
+      display: block;
       margin-top: 16px;
     }
 
@@ -1842,34 +1881,12 @@
         <div class="endorsement-list" id="endorsementList" aria-live="polite">
           <div class="comments-fallback">Loading endorsements…</div>
         </div>
+        
+        <button onclick="document.getElementById('endorseDialog').showModal()" style="margin-top: 15px; width: 100%;">Endorse this cause</button>
       </aside>
 
       <div class="community-main">
-        <h3>Endorse this appeal</h3>
-        <p class="community-prompt">Add your name, designation, and organisation to stand with Satyam’s family.</p>
-
-        <form class="community-form" id="endorsementForm">
-          <div class="community-field">
-            <label for="endorsementName">NAME</label>
-            <input id="endorsementName" name="name" required maxlength="100" autocomplete="name">
-          </div>
-          <div class="community-field">
-            <label for="endorsementDesignation">DESIGNATION</label>
-            <input id="endorsementDesignation" name="designation" maxlength="120" autocomplete="organization-title">
-          </div>
-          <div class="community-field">
-            <label for="endorsementOrganisation">ORGANISATION</label>
-            <input id="endorsementOrganisation" name="organisation" maxlength="160" autocomplete="organization">
-          </div>
-          <div class="community-field">
-            <label for="endorsementMessage">MESSAGE (OPTIONAL)</label>
-            <textarea id="endorsementMessage" name="message" maxlength="500"></textarea>
-          </div>
-          <button type="submit">Submit endorsement</button>
-          <div class="community-status" id="endorsementStatus" aria-live="polite"></div>
-        </form>
-
-        <hr class="community-divider">
+        
         <h3>Comments &amp; messages</h3>
         <p class="community-prompt">Leave a message of support for the family.</p>
 
@@ -2257,7 +2274,7 @@ Branch: ${branch}`;
       return;
     }
 
-    const visible = Array.from({ length: Math.min(5, approvedEndorsements.length) }, (_, index) =>
+    const visible = Array.from({ length: Math.min(1, approvedEndorsements.length) }, (_, index) =>
       approvedEndorsements[(endorsementOffset + index) % approvedEndorsements.length]
     );
     list.innerHTML = visible.map(item => `
@@ -2301,7 +2318,7 @@ Branch: ${branch}`;
     displayEndorsements();
     displayComments(commentResult.data || []);
     clearInterval(endorsementTimer);
-    if (approvedEndorsements.length > 5) {
+    if (approvedEndorsements.length > 1) {
       endorsementTimer = setInterval(() => {
         endorsementOffset = (endorsementOffset + 1) % approvedEndorsements.length;
         displayEndorsements();
@@ -2402,6 +2419,38 @@ Branch: ${branch}`;
 
 </script>
 
+
+
+<!-- =====================================================
+     ENDORSEMENT DIALOG
+     ===================================================== -->
+<dialog id="endorseDialog">
+  <div class="dialog-header">
+    <h3>Endorse this appeal</h3>
+    <button class="dialog-close" onclick="document.getElementById('endorseDialog').close()">&times;</button>
+  </div>
+  <p class="community-prompt" style="margin-top:0;">Add your name, designation, and organisation to stand with Satyam’s family.</p>
+  <form class="community-form" id="endorsementForm">
+    <div class="community-field">
+      <label for="endorsementName">NAME</label>
+      <input id="endorsementName" name="name" required maxlength="100" autocomplete="name">
+    </div>
+    <div class="community-field">
+      <label for="endorsementDesignation">DESIGNATION</label>
+      <input id="endorsementDesignation" name="designation" maxlength="120" autocomplete="organization-title">
+    </div>
+    <div class="community-field">
+      <label for="endorsementOrganisation">ORGANISATION</label>
+      <input id="endorsementOrganisation" name="organisation" maxlength="160" autocomplete="organization">
+    </div>
+    <div class="community-field">
+      <label for="endorsementMessage">MESSAGE (OPTIONAL)</label>
+      <textarea id="endorsementMessage" name="message" maxlength="500"></textarea>
+    </div>
+    <button type="submit">Submit endorsement</button>
+    <div class="community-status" id="endorsementStatus" aria-live="polite"></div>
+  </form>
+</dialog>
 
 </body>
 </html>
