@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <title>Flood Relief Support</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .container {
+      width: min(700px, 92%);
+      margin: auto;
+      padding: 25px 0 50px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e2e8f0;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 15px 0 10px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      color: #64748b;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 22px;
+      margin-top: 18px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .qr-section {
+      text-align: center;
+    }
+
+    #qrcode {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .qr-note {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: #f1f5f9;
+      margin-top: 10px;
+      padding: 14px;
+      border-radius: 12px;
+    }
+
+    .bank-info {
+      min-width: 0;
+    }
+
+    .label {
+      color: #64748b;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+
+    .value {
+      font-weight: bold;
+      font-size: 16px;
+      overflow-wrap: anywhere;
+    }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #0f172a;
+      color: white;
+      white-space: nowrap;
+    }
+
+    button.secondary {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    ol {
+      padding-left: 22px;
+      color: #475569;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    .warning {
+      background: #fff7ed;
+      border-color: #fed7aa;
+    }
+
+    .warning strong {
+      color: #9a3412;
+    }
+
+    .footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f172a;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    @media (max-width: 550px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .bank-row {
+        align-items: flex-start;
+      }
+
+      .bank-row button {
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="badge">URGENT FLOOD RELIEF</div>
+
+    <h1>Help Rebuild Our Home</h1>
+
+    <p class="subtitle">
+      Our home in Haijalpur, Bihar, was completely destroyed by the recent flooding.
+      We are raising financial support for immediate family needs and recovery.
+    </p>
+  </section>
+
+
+  <!-- QR -->
+  <section class="card qr-section">
+
+    <h2>Scan to Get Bank Transfer Details</h2>
+
+    <div id="qrcode"></div>
+
+    <p class="qr-note">
+      This is a website QR, not a UPI QR.
+      Scan it to open this page and quickly copy the HDFC bank details below.
+    </p>
+
+    <div class="buttons">
+      <button onclick="sharePage()">Share Page</button>
+      <button class="secondary" onclick="copyAll()">Copy All Details</button>
+    </div>
+
+  </section>
+
+
+  <!-- BANK DETAILS -->
+  <section class="card">
+
+    <h2>HDFC Bank Transfer</h2>
+
+    <p class="qr-note">
+      You can transfer using NEFT, IMPS or RTGS through your bank.
+    </p>
+
+
+    <div class="bank-row">
+      <div class="bank-info">
+        <div class="label">ACCOUNT HOLDER</div>
+        <div class="value" id="accountName">
+          YOUR NAME
+        </div>
+      </div>
+
+      <button onclick="copyText('accountName')">Copy</button>
+    </div>
+
+
+    <div class="bank-row">
+      <div class="bank-info">
+        <div class="label">BANK</div>
+        <div class="value">
+          HDFC Bank
+        </div>
+      </div>
+
+      <button onclick="copyValue('HDFC Bank')">Copy</button>
+    </div>
+
+
+    <div class="bank-row">
+      <div class="bank-info">
+        <div class="label">ACCOUNT NUMBER</div>
+        <div class="value" id="accountNumber">
+          YOUR_ACCOUNT_NUMBER
+        </div>
+      </div>
+
+      <button onclick="copyText('accountNumber')">Copy</button>
+    </div>
+
+
+    <div class="bank-row">
+      <div class="bank-info">
+        <div class="label">IFSC</div>
+        <div class="value" id="ifsc">
+          YOUR_IFSC
+        </div>
+      </div>
+
+      <button onclick="copyText('ifsc')">Copy</button>
+    </div>
+
+
+    <div class="bank-row">
+      <div class="bank-info">
+        <div class="label">BRANCH</div>
+        <div class="value" id="branch">
+          YOUR HDFC BRANCH
+        </div>
+      </div>
+
+      <button onclick="copyText('branch')">Copy</button>
+    </div>
+
+
+    <ol>
+      <li>Add the beneficiary if your bank requires it.</li>
+      <li>Enter the account number and IFSC exactly as shown.</li>
+      <li>Choose NEFT, IMPS or RTGS.</li>
+      <li>Before confirming, verify the beneficiary name shown by your bank.</li>
+      <li>Keep your transaction / UTR reference.</li>
+    </ol>
+
+  </section>
+
+
+  <!-- FUNDRAISER -->
+  <section class="card">
+
+    <h2>Fundraising Goal</h2>
+
+    <p>
+      We are aiming to raise approximately
+      <strong>₹5–20 lakh</strong>
+      to help our family recover from the flood and rebuild.
+    </p>
+
+    <p class="qr-note">
+      Contributions of any amount are deeply appreciated.
+      Please share this page with friends, professors, alumni and well-wishers.
+    </p>
+
+  </section>
+
+
+  <!-- SAFETY -->
+  <section class="card warning">
+
+    <strong>Important Safety Reminder</strong>
+
+    <p>
+      Bank transfers require beneficiary information only.
+      Never share or ask anyone for an OTP, UPI PIN, debit-card PIN,
+      CVV, NetBanking password or login credentials.
+    </p>
+
+  </section>
+
+
+  <div class="footer">
+    Thank you for helping our family during this difficult time.
+  </div>
+
+</div>
+
+
+<div id="toast">Copied</div>
+
+
+<!-- QR CODE LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+
+  function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.innerText = message;
+    toast.style.display = "block";
+
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 1800);
+  }
+
+
+  async function copyValue(value) {
+
+    try {
+
+      await navigator.clipboard.writeText(value);
+
+      showToast("Copied!");
+
+    } catch {
+
+      showToast("Copy failed");
+
+    }
+
+  }
+
+
+  function copyText(id) {
+
+    const value =
+      document.getElementById(id).innerText.trim();
+
+    copyValue(value);
+
+  }
+
+
+  function copyAll() {
+
+    const text = `
+HDFC Bank
+
+Account Holder:
+${document.getElementById("accountName").innerText.trim()}
+
+Account Number:
+${document.getElementById("accountNumber").innerText.trim()}
+
+IFSC:
+${document.getElementById("ifsc").innerText.trim()}
+
+Branch:
+${document.getElementById("branch").innerText.trim()}
+`;
+
+    copyValue(text);
+
+  }
+
+
+  async function sharePage() {
+
+    try {
+
+      if (navigator.share) {
+
+        await navigator.share({
+          title: "Flood Relief Support",
+          text: "Please see the bank transfer details for flood-relief support.",
+          url: window.location.href
+        });
+
+      } else {
+
+        copyValue(window.location.href);
+
+      }
+
+    } catch {}
+
+  }
+
+
+  /*
+    IMPORTANT:
+    This QR automatically contains the URL of this webpage.
+    Once GitHub Pages publishes the site, scanning the QR
+    opens the live website.
+  */
+
+  new QRCode(
+    document.getElementById("qrcode"),
+    {
+      text: window.location.href,
+      width: 210,
+      height: 210
+    }
+  );
+
+</script>
+
+</body>
+</html>
