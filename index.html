@@ -274,45 +274,6 @@
       margin-top: 22px;
     }
 
-    /* ================= DIALOG ================= */
-
-    dialog {
-      border: none;
-      border-radius: 16px;
-      padding: 24px;
-      max-width: 450px;
-      width: 90%;
-      box-shadow: 0 8px 25px rgba(15, 23, 42, .15);
-      background: #ffffff;
-      color: #0f172a;
-    }
-
-    dialog::backdrop {
-      background: rgba(15, 23, 42, 0.6);
-    }
-
-    .dialog-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .dialog-header h3 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    .dialog-close {
-      background: transparent;
-      border: none;
-      color: #64748b;
-      padding: 0;
-      font-size: 28px;
-      line-height: 1;
-      cursor: pointer;
-    }
-
     /* ================= TOAST ================= */
 
     #toast {
@@ -699,164 +660,6 @@
       line-height: 1.55;
     }
 
-    .community-layout {
-      display: block;
-      margin-top: 16px;
-    }
-
-    .endorsement-sidebar {
-      position: sticky;
-      top: 20px;
-      align-self: start;
-      padding: 16px;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      background: #f8fafc;
-      margin-bottom: 22px;
-    }
-
-    @media (min-width: 900px) {
-      .endorsement-sidebar {
-        position: fixed;
-        top: 50%;
-        left: 20px;
-        transform: translateY(-50%);
-        width: 200px;
-        z-index: 50;
-        box-shadow: 0 8px 25px rgba(15, 23, 42, .15);
-        margin-bottom: 0;
-      }
-    }
-
-    .endorsement-sidebar h3, .community-main h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .community-prompt {
-      margin: 7px 0 14px;
-      color: #64748b;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .community-form, .admin-form {
-      display: grid;
-      gap: 10px;
-    }
-
-    .community-field label {
-      display: block;
-      margin-bottom: 4px;
-      color: #475569;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .04em;
-    }
-
-    .community-field input, .community-field textarea {
-      width: 100%;
-      border: 1px solid #cbd5e1;
-      border-radius: 9px;
-      padding: 9px 10px;
-      color: #0f172a;
-      font: inherit;
-    }
-
-    .community-field textarea { min-height: 86px; resize: vertical; }
-    .community-form button, .admin-form button { width: 100%; }
-
-    .endorsement-list, .comment-list, .admin-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .endorsement-item, .comment-item, .admin-item {
-      padding: 12px;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      background: #ffffff;
-    }
-
-    .endorsement-name, .comment-name {
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .endorsement-role, .comment-date, .community-status {
-      margin-top: 3px;
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .endorsement-message, .comment-message {
-      margin: 7px 0 0;
-      color: #475569;
-      font-size: 13px;
-      line-height: 1.5;
-      white-space: pre-wrap;
-    }
-
-    .admin-panel {
-      display: none;
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    .admin-panel.open { display: block; }
-
-    .admin-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 9px;
-    }
-
-    .admin-actions button { font-size: 12px; }
-
-    @media (max-width: 700px) {
-      .community-layout { grid-template-columns: 1fr; }
-      .endorsement-sidebar { position: static; }
-    }
-
-    /* ================= CONTACT ================= */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .contact-item {
-      padding: 14px;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      background: #f8fafc;
-    }
-
-    .contact-label {
-      color: #64748b;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .05em;
-    }
-
-    .contact-value {
-      display: block;
-      margin-top: 5px;
-      color: #0f172a;
-      font-size: 15px;
-      font-weight: 800;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-value[href] {
-      text-decoration: none;
-    }
-
 
 
     /* ================= PERSONAL INTRO ================= */
@@ -915,7 +718,6 @@
 
     @media (max-width: 700px) {
       .photo-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
     }
 
   </style>
@@ -1825,99 +1627,23 @@
 
 
   <!-- =====================================================
-       CONTACT
-       Replace the placeholders below with the live phone numbers and emails.
+       COMMENTS / MESSAGES
        ===================================================== -->
 
   <section class="card">
 
-    <h2>Contact Me</h2>
+    <h2>
+      Comments & Messages
+    </h2>
 
     <p class="note" style="margin-bottom:0;">
-      For verification, support, or any question about this appeal, please feel free to get in touch.
+      Leave a message, words of support, or anything you would like the family to see.
+      Comments are public and are hosted through GitHub. A GitHub account is required to post.
     </p>
 
-    <div class="contact-grid">
-      <div class="contact-item">
-        <div class="contact-label">PRIMARY PHONE</div>
-        <span class="contact-value">Add primary phone number</span>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-label">ALTERNATE PHONE</div>
-        <span class="contact-value">Add alternate phone number</span>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-label">PERSONAL EMAIL</div>
-        <span class="contact-value">Add personal email address</span>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-label">IIT ROORKEE EMAIL</div>
-        <span class="contact-value">Add IIT Roorkee email address</span>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-label">WHATSAPP</div>
-        <span class="contact-value">Available on primary phone number</span>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-label">BEST TIME TO CONTACT</div>
-        <span class="contact-value">Add preferred contact hours</span>
-      </div>
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       COMMENTS / MESSAGES
-       ===================================================== -->
-
-  <section class="card" id="community">
-
-    <h2>Messages of Support</h2>
-
-    <p class="note" style="margin-bottom:0;">
-      You can leave a public message or endorse this appeal without a GitHub account. New submissions are reviewed before they appear.
-    </p>
-
-    <div class="community-layout">
-      <aside class="endorsement-sidebar" aria-labelledby="endorsementTitle">
-        <h3 id="endorsementTitle">Endorsements</h3>
-        <p class="community-prompt">People standing with Satyam’s family.</p>
-
-        <div class="endorsement-list" id="endorsementList" aria-live="polite">
-          <div class="comments-fallback">Loading endorsements…</div>
-        </div>
-        
-        <button onclick="document.getElementById('endorseDialog').showModal()" style="margin-top: 15px; width: 100%;">Endorse this cause</button>
-      </aside>
-
-      <div class="community-main">
-        <h3>Comments &amp; messages</h3>
-        <p class="community-prompt">Leave a message of support for the family.</p>
-
-        <form class="community-form" id="commentForm">
-          <div class="community-field">
-            <label for="commentName">NAME (OPTIONAL)</label>
-            <input id="commentName" name="name" maxlength="100" autocomplete="name">
-          </div>
-          <div class="community-field">
-            <label for="commentMessage">YOUR MESSAGE</label>
-            <textarea id="commentMessage" name="message" required maxlength="1000"></textarea>
-          </div>
-          <button type="submit">Submit message</button>
-          <div class="community-status" id="commentStatus" aria-live="polite"></div>
-        </form>
-
-        <div class="comment-list" id="commentList" aria-live="polite">
-          <div class="comments-fallback">Loading messages…</div>
-        </div>
-
+    <div class="comments-box" id="commentsBox">
+      <div class="comments-fallback">
+        Loading comments…
       </div>
     </div>
 
@@ -2015,7 +1741,6 @@
      ===================================================== -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 
@@ -2259,140 +1984,66 @@ Branch: ${branch}`;
 
 
   /* =====================================================
-     COMMUNITY — SUPABASE
+     COMMENTS — UTTERANCES / GITHUB
      ===================================================== */
 
-  const COMMUNITY_SUPABASE_URL = "https://sgxmfyqwcwosrdwqhyfv.supabase.co";
-  const COMMUNITY_SUPABASE_KEY = "sb_publishable_vNOWN1fI9FkL4avB86kK8g_4f1YupFi";
-  const communityClient = window.supabase.createClient(
-    COMMUNITY_SUPABASE_URL,
-    COMMUNITY_SUPABASE_KEY
-  );
-  let approvedEndorsements = [];
-  let endorsementOffset = 0;
-  let endorsementTimer;
+  function getGitHubRepoFromPagesUrl() {
 
-  function escapeCommunityText(value) {
-    return String(value || "").replace(/[&<>'"]/g, char => ({
-      "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
-    })[char]);
-  }
+    const host = window.location.hostname;
+    const pathParts =
+      window.location.pathname
+      .split("/")
+      .filter(Boolean);
 
-  function displayEndorsements() {
-    const list = document.getElementById("endorsementList");
-    if (!approvedEndorsements.length) {
-      list.innerHTML = '<div class="comments-fallback">Be the first to endorse this appeal.</div>';
-      return;
+    if (host.endsWith(".github.io")) {
+      const owner = host.split(".")[0];
+      const repoName = pathParts[0] || "flood-relief";
+      return owner + "/" + repoName;
     }
 
-    const visible = Array.from({ length: Math.min(1, approvedEndorsements.length) }, (_, index) =>
-      approvedEndorsements[(endorsementOffset + index) % approvedEndorsements.length]
-    );
-    list.innerHTML = visible.map(item => `
-      <article class="endorsement-item">
-        <div class="endorsement-name">${escapeCommunityText(item.name)}</div>
-        <div class="endorsement-role">${escapeCommunityText([item.designation, item.organisation].filter(Boolean).join(" · "))}</div>
-        ${item.message ? `<p class="endorsement-message">${escapeCommunityText(item.message)}</p>` : ""}
-      </article>
-    `).join("");
+    /* Fallback for a custom domain: change this if needed. */
+    return "YOUR_GITHUB_USERNAME/flood-relief";
   }
 
-  function displayComments(comments) {
-    const list = document.getElementById("commentList");
-    if (!comments.length) {
-      list.innerHTML = '<div class="comments-fallback">No public messages yet.</div>';
-      return;
-    }
-    list.innerHTML = comments.map(item => `
-      <article class="comment-item">
-        <div class="comment-name">${escapeCommunityText(item.name || "Supporter")}</div>
-        <p class="comment-message">${escapeCommunityText(item.message)}</p>
-      </article>
-    `).join("");
-  }
 
-  async function loadCommunity() {
-    const [endorsementResult, commentResult] = await Promise.all([
-      communityClient.from("endorsements").select("name, designation, organisation, message, created_at").eq("status", "approved").order("created_at", { ascending: false }),
-      communityClient.from("comments").select("name, message, created_at").eq("status", "approved").order("created_at", { ascending: false }).limit(30)
-    ]);
+  function loadComments() {
 
-    if (endorsementResult.error || commentResult.error) {
-      const message = "Community submissions will be available once the database setup is complete.";
-      document.getElementById("endorsementList").innerHTML = `<div class="comments-fallback">${message}</div>`;
-      document.getElementById("commentList").innerHTML = `<div class="comments-fallback">${message}</div>`;
-      return;
-    }
+    const box =
+      document.getElementById("commentsBox");
 
-    approvedEndorsements = endorsementResult.data || [];
-    endorsementOffset = 0;
-    displayEndorsements();
-    displayComments(commentResult.data || []);
-    clearInterval(endorsementTimer);
-    if (approvedEndorsements.length > 1) {
-      endorsementTimer = setInterval(() => {
-        endorsementOffset = (endorsementOffset + 1) % approvedEndorsements.length;
-        displayEndorsements();
-      }, 10000);
-    }
-  }
+    const repo = getGitHubRepoFromPagesUrl();
 
-  async function submitCommunityForm(event, table, statusId) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const status = document.getElementById(statusId);
-    const values = Object.fromEntries(new FormData(form).entries());
-    status.textContent = "Submitting…";
-    const { error } = await communityClient.from(table).insert({ ...values, status: "pending" });
-    if (error) {
-      status.textContent = "Unable to submit right now. Please try again shortly.";
-      return;
-    }
-    form.reset();
-    status.textContent = "Thank you. Your submission will appear after approval.";
-  }
-
-  async function loadAdminQueue() {
-    const { data: sessionData } = await communityClient.auth.getSession();
-    if (!sessionData.session) return;
-
-    const [endorsementResult, commentResult] = await Promise.all([
-      communityClient.from("endorsements").select("id, name, designation, organisation, message").eq("status", "pending").order("created_at"),
-      communityClient.from("comments").select("id, name, message").eq("status", "pending").order("created_at")
-    ]);
-    if (endorsementResult.error || commentResult.error) return;
-    const items = [
-      ...(endorsementResult.data || []).map(item => ({ ...item, type: "endorsements", summary: `${item.name} — ${[item.designation, item.organisation].filter(Boolean).join(", ")}` })),
-      ...(commentResult.data || []).map(item => ({ ...item, type: "comments", summary: `${item.name || "Supporter"}: ${item.message}` }))
-    ];
-    document.getElementById("adminPanel").classList.add("open");
-    document.getElementById("adminList").innerHTML = items.length ? items.map(item => `
-      <article class="admin-item">
-        <div class="comment-message">${escapeCommunityText(item.summary)}</div>
-        <div class="admin-actions">
-          <button type="button" onclick="moderateCommunityItem('${item.type}', '${item.id}', 'approved')">Approve</button>
-          <button type="button" class="secondary" onclick="moderateCommunityItem('${item.type}', '${item.id}', 'rejected')">Hide</button>
+    if (repo.startsWith("YOUR_GITHUB_USERNAME/")) {
+      box.innerHTML = `
+        <div class="comments-fallback">
+          Comments need the GitHub repository name configured in
+          <code>getGitHubRepoFromPagesUrl()</code> before they can be displayed.
         </div>
-      </article>
-    `).join("") : '<div class="comments-fallback">No submissions are awaiting review, or this account does not have moderation access.</div>';
-  }
-
-  async function moderateCommunityItem(table, id, status) {
-    const { error } = await communityClient.from(table).update({ status }).eq("id", id);
-    if (!error) {
-      await Promise.all([loadCommunity(), loadAdminQueue()]);
+      `;
+      return;
     }
-  }
 
-  async function requestAdminAccess() {
-    const email = window.prompt("Enter your approved admin email address:");
-    const status = document.getElementById("adminStatus");
-    if (!email) return;
-    const { error } = await communityClient.auth.signInWithOtp({
-      email: email.trim().toLowerCase(),
-      options: { emailRedirectTo: window.location.href }
-    });
-    status.textContent = error ? "Unable to send the sign-in link." : "Check your inbox for the admin sign-in link.";
+    const script =
+      document.createElement("script");
+
+    script.src =
+      "https://utteranc.es/client.js";
+
+    script.async = true;
+
+    script.crossOrigin = "anonymous";
+
+    script.setAttribute("repo", repo);
+
+    script.setAttribute("issue-term", "pathname");
+
+    script.setAttribute("theme", "github-light");
+
+    script.setAttribute("label", "comments");
+
+    box.innerHTML = "";
+
+    box.appendChild(script);
   }
 
 
@@ -2418,49 +2069,10 @@ Branch: ${branch}`;
 
   createUpiQr("upiQr3", "upiId3");
 
-  document.getElementById("endorsementForm").addEventListener("submit", event =>
-    submitCommunityForm(event, "endorsements", "endorsementStatus")
-  );
-  document.getElementById("commentForm").addEventListener("submit", event =>
-    submitCommunityForm(event, "comments", "commentStatus")
-  );
-  document.getElementById("adminAccessButton").addEventListener("click", requestAdminAccess);
-  loadCommunity();
-  loadAdminQueue();
+  loadComments();
 
 </script>
 
-
-<!-- =====================================================
-     ENDORSEMENT DIALOG
-     ===================================================== -->
-<dialog id="endorseDialog">
-  <div class="dialog-header">
-    <h3>Endorse this appeal</h3>
-    <button class="dialog-close" onclick="document.getElementById('endorseDialog').close()">&times;</button>
-  </div>
-  <p class="community-prompt" style="margin-top:0;">Add your name, designation, and organisation to stand with Satyam’s family.</p>
-  <form class="community-form" id="endorsementForm">
-    <div class="community-field">
-      <label for="endorsementName">NAME</label>
-      <input id="endorsementName" name="name" required maxlength="100" autocomplete="name">
-    </div>
-    <div class="community-field">
-      <label for="endorsementDesignation">DESIGNATION</label>
-      <input id="endorsementDesignation" name="designation" maxlength="120" autocomplete="organization-title">
-    </div>
-    <div class="community-field">
-      <label for="endorsementOrganisation">ORGANISATION</label>
-      <input id="endorsementOrganisation" name="organisation" maxlength="160" autocomplete="organization">
-    </div>
-    <div class="community-field">
-      <label for="endorsementMessage">MESSAGE (OPTIONAL)</label>
-      <textarea id="endorsementMessage" name="message" maxlength="500"></textarea>
-    </div>
-    <button type="submit">Submit endorsement</button>
-    <div class="community-status" id="endorsementStatus" aria-live="polite"></div>
-  </form>
-</dialog>
 
 </body>
 </html>
