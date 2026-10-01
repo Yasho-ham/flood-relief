@@ -2241,11 +2241,6 @@ Branch: ${branch}`;
 
   const COMMUNITY_SUPABASE_URL = "https://sgxmfyqwcwosrdwqhyfv.supabase.co";
   const COMMUNITY_SUPABASE_KEY = "sb_publishable_vNOWN1fI9FkL4avB86kK8g_4f1YupFi";
-  const COMMUNITY_ADMINS = new Set([
-    "satyamsks999000@gmail.com",
-    "soumyacpr20@gmail.com",
-    "yashmth5792@gmail.com"
-  ]);
   const communityClient = window.supabase.createClient(
     COMMUNITY_SUPABASE_URL,
     COMMUNITY_SUPABASE_KEY
@@ -2336,18 +2331,18 @@ Branch: ${branch}`;
 
   async function loadAdminQueue() {
     const { data: sessionData } = await communityClient.auth.getSession();
-    const email = sessionData.session?.user?.email?.toLowerCase();
-    if (!COMMUNITY_ADMINS.has(email)) return;
+    if (!sessionData.session) return;
 
-    document.getElementById("adminPanel").classList.add("open");
     const [endorsementResult, commentResult] = await Promise.all([
       communityClient.from("endorsements").select("id, name, designation, organisation, message").eq("status", "pending").order("created_at"),
       communityClient.from("comments").select("id, name, message").eq("status", "pending").order("created_at")
     ]);
+    if (endorsementResult.error || commentResult.error) return;
     const items = [
       ...(endorsementResult.data || []).map(item => ({ ...item, type: "endorsements", summary: `${item.name} — ${[item.designation, item.organisation].filter(Boolean).join(", ")}` })),
       ...(commentResult.data || []).map(item => ({ ...item, type: "comments", summary: `${item.name || "Supporter"}: ${item.message}` }))
     ];
+    document.getElementById("adminPanel").classList.add("open");
     document.getElementById("adminList").innerHTML = items.length ? items.map(item => `
       <article class="admin-item">
         <div class="comment-message">${escapeCommunityText(item.summary)}</div>
@@ -2356,7 +2351,7 @@ Branch: ${branch}`;
           <button type="button" class="secondary" onclick="moderateCommunityItem('${item.type}', '${item.id}', 'rejected')">Hide</button>
         </div>
       </article>
-    `).join("") : '<div class="comments-fallback">No submissions are awaiting review.</div>';
+    `).join("") : '<div class="comments-fallback">No submissions are awaiting review, or this account does not have moderation access.</div>';
   }
 
   async function moderateCommunityItem(table, id, status) {
@@ -2370,10 +2365,6 @@ Branch: ${branch}`;
     const email = window.prompt("Enter your approved admin email address:");
     const status = document.getElementById("adminStatus");
     if (!email) return;
-    if (!COMMUNITY_ADMINS.has(email.trim().toLowerCase())) {
-      status.textContent = "This email is not approved for moderation.";
-      return;
-    }
     const { error } = await communityClient.auth.signInWithOtp({
       email: email.trim().toLowerCase(),
       options: { emailRedirectTo: window.location.href }
