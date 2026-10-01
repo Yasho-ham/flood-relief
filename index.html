@@ -322,6 +322,415 @@
       }
     }
 
+
+    /* ================= INTERACTIVE MAP ================= */
+
+    .impact-section {
+      margin-top: 18px;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .impact-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .impact-card-header {
+      padding: 15px 16px 10px;
+    }
+
+    .impact-card-header h3 {
+      margin: 0 0 4px;
+      font-size: 19px;
+    }
+
+    .impact-card-header p {
+      margin: 0;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .impact-caption {
+      padding: 11px 15px 14px;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .impact-actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      padding: 0 15px 15px;
+    }
+
+    .impact-actions a {
+      display: inline-block;
+      text-decoration: none;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .impact-actions a.secondary {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    /* ================= LOCAL VIDEO ================= */
+
+    .flood-video {
+      display: block;
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      background: #000000;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .video-fallback {
+      display: none;
+      padding: 15px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    /* ================= ARTICLE PREVIEW ================= */
+
+    .article-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .article-preview {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 15px;
+    }
+
+    .article-thumbnail {
+      min-height: 145px;
+      border-radius: 14px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #0f172a 0%, #334155 55%, #64748b 100%);
+      color: #ffffff;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .article-thumbnail-source {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .article-thumbnail-icon {
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .article-thumbnail-date {
+      font-size: 11px;
+      opacity: .85;
+    }
+
+    .article-copy {
+      padding: 3px 0;
+    }
+
+    .article-copy .source {
+      margin: 0 0 6px;
+      font-size: 11px;
+      font-weight: 900;
+      color: #64748b;
+      letter-spacing: .04em;
+    }
+
+    .article-copy h3 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .article-copy p {
+      margin: 8px 0 0;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* ================= THREE UPI QRS ================= */
+
+    .upi-qr-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 18px auto 12px;
+      max-width: 690px;
+    }
+
+    .upi-qr-slot {
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .upi-qr-slot h3 {
+      margin: 0 0 3px;
+      font-size: 16px;
+    }
+
+    .upi-qr-slot p {
+      margin: 0 0 10px;
+      color: #64748b;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .upi-qr {
+      min-height: 190px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 8px;
+    }
+
+    .upi-qr canvas,
+    .upi-qr img {
+      max-width: 100%;
+      height: auto !important;
+    }
+
+    .upi-small-id {
+      display: block;
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 7px 8px;
+      font-size: 11px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 700px) {
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flood-video {
+        height: 280px;
+      }
+
+      .article-preview {
+        grid-template-columns: 1fr;
+      }
+
+      .article-thumbnail {
+        min-height: 120px;
+      }
+
+      .upi-qr-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+      }
+
+    }
+
+
+
+    /* ================= MAP THUMBNAIL ================= */
+
+    .map-thumb-wrap {
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .map-thumb-link {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+
+    .map-thumb-image {
+      display: block;
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+    }
+
+    .map-thumb-overlay {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      background: rgba(15, 23, 42, .88);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+
+    /* ================= GOOGLE FLOOD FORECAST PREVIEW ================= */
+
+    .google-flood-preview {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      background: #e2e8f0;
+      border-top: 1px solid #e2e8f0;
+      text-decoration: none;
+    }
+
+    .google-flood-preview-image {
+      display: block;
+      width: 100%;
+      height: 285px;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .18s ease;
+    }
+
+    .google-flood-preview:hover .google-flood-preview-image {
+      transform: scale(1.015);
+    }
+
+    .google-flood-preview-overlay {
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,.94);
+      color: #0f172a;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 2px 10px rgba(15,23,42,.16);
+    }
+
+    .flood-legend {
+      padding: 12px 15px 2px;
+      color: #475569;
+      font-size: 12px;
+    }
+
+    .legend-title {
+      color: #64748b;
+      margin-bottom: 7px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 14px;
+      margin-bottom: 6px;
+    }
+
+    .legend-dot {
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      margin-right: 6px;
+      border: 2px solid #3b82f6;
+    }
+
+    .legend-dot.high {
+      background: #3b82f6;
+    }
+
+    .legend-dot.moderate {
+      background: radial-gradient(circle, #2563eb 1.2px, transparent 1.4px);
+      background-size: 4px 4px;
+    }
+
+    .legend-dot.unavailable {
+      background: transparent;
+      border-style: dashed;
+    }
+
+    /* ================= ARTICLE THUMBNAIL ================= */
+
+    .article-thumb-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #e2e8f0;
+      min-height: 145px;
+    }
+
+    .article-thumb-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 145px;
+      object-fit: cover;
+    }
+
+    .article-logo-overlay {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(15,23,42,.18);
+    }
+
+    /* ================= QR DOWNLOAD ================= */
+
+    .qr-actions {
+      display: grid;
+      gap: 7px;
+      margin-top: 9px;
+    }
+
+    .qr-actions button {
+      width: 100%;
+      font-size: 12px;
+    }
+
+    /* ================= COMMENTS ================= */
+
+    .comments-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ffffff;
+      margin-top: 14px;
+    }
+
+    .comments-fallback {
+      padding: 16px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
   </style>
 </head>
 
@@ -356,6 +765,218 @@
     </p>
 
   </section>
+
+
+  <!-- =====================================================
+       AFFECTED AREA / GOOGLE FLOOD FORECAST / VIDEO
+       ===================================================== -->
+
+  <section class="card impact-section">
+
+    <h2>
+      Affected Area
+    </h2>
+
+    <p class="note">
+      Haijalpur, Badhakaul Panchayat, Maker Block, Saran, Bihar.
+      The preview below is from Google's flood information view.
+      Click it to open the interactive map and explore the area.
+    </p>
+
+
+    <div class="impact-grid">
+
+
+      <!-- ================= GOOGLE FLOOD FORECAST ================= -->
+
+      <div class="impact-card">
+
+        <div class="impact-card-header">
+
+          <h3>
+            Affected area
+          </h3>
+
+          <p>
+            Flood prediction for tomorrow evening
+          </p>
+
+        </div>
+
+
+        <a
+          class="google-flood-preview"
+          href="https://www.google.com/maps/@25.9732337,84.8824852,53402m/data=!3m2!1e3!4b1!4m2!21m1!1s%2Fg%2F11zxwzzn7_?hl=en-IN&entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open the interactive Google Maps flood view"
+        >
+
+          <img
+            src="google-flood-forecast-preview.png"
+            alt="Google flood forecast view showing the affected area around Haijalpur and the Gandak River"
+            class="google-flood-preview-image"
+          >
+
+          <span class="google-flood-preview-overlay">
+            View interactive map ↗
+          </span>
+
+        </a>
+
+
+        <div class="flood-legend">
+
+          <div class="legend-title">
+            Flood risk
+          </div>
+
+          <div class="legend-item">
+            <span class="legend-dot high"></span>
+            High
+          </div>
+
+          <div class="legend-item">
+            <span class="legend-dot moderate"></span>
+            Moderate
+          </div>
+
+          <div class="legend-item">
+            <span class="legend-dot unavailable"></span>
+            No info available
+          </div>
+
+        </div>
+
+
+        <div class="impact-caption">
+
+          Flood conditions are approximate and provided for
+          informational purposes only. The preview is a
+          snapshot; use the interactive Google Maps view for
+          the latest available map information.
+
+        </div>
+
+        <div class="impact-actions">
+
+          <a
+            href="https://www.google.com/maps/@25.9732337,84.8824852,53402m/data=!3m2!1e3!4b1!4m2!21m1!1s%2Fg%2F11zxwzzn7_?hl=en-IN&entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View map
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= LOCAL VIDEO ================= -->
+
+      <div class="impact-card">
+
+        <div class="impact-card-header">
+
+          <h3>
+            Flood Devastation
+          </h3>
+
+          <p>
+            Video from the affected area — autoplay, muted
+          </p>
+
+        </div>
+
+        <video
+          class="flood-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          controls
+          preload="metadata"
+        >
+
+          <source
+            src="flood-video.mp4"
+            type="video/mp4"
+          >
+
+          Your browser does not support MP4 video playback.
+
+        </video>
+
+        <div class="impact-caption">
+
+          The video is stored locally with this website and is
+          shown muted by default.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       JAGRAN SOURCE
+       ===================================================== -->
+
+  <a
+    class="card article-link"
+    href="https://share.google/g30SCIZzm2W84n7WY"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+
+    <div class="article-preview">
+
+      <div class="article-thumb-wrap">
+
+        <img
+          class="article-thumb-image"
+          src="https://image.thum.io/get/width/900/crop/520/noanimate/https://www.jagran.com/bihar/saran-saran-two-storey-house-submerged-in-flood-water-video-40390719.html"
+          alt="Jagran article thumbnail"
+          loading="lazy"
+        >
+
+        <img
+          class="article-logo-overlay"
+          src="https://www.jagran.com/favicon.ico"
+          alt="Jagran logo"
+        >
+
+      </div>
+
+
+      <div class="article-copy">
+
+        <div class="source">
+          SOURCE: JAGRAN
+        </div>
+
+        <h3>
+          सारण में देखते-देखते पानी में डूब गया 2 मंजिला मकान, कैमरे में कैद हुआ खौफनाक मंजर
+        </h3>
+
+        <p>
+          सारण के हैजलपुर में तटबंध टूटने से आई बाढ़ ने तबाही मचा दी। पानी के तेज बहाव में दो मंजिला मकान जलमग्न होकर समा गया।
+        </p>
+
+        <p>
+          मूल खबर पढ़ें →
+        </p>
+
+      </div>
+
+    </div>
+
+  </a>
 
 
 
@@ -767,28 +1388,131 @@
     </p>
 
 
-    <!-- ================= UPI QR ================= -->
+    <!-- ================= THREE UPI QRS ================= -->
 
-    <div id="upiQr"></div>
-
-
-    <div class="label">
-      UPI ID
-    </div>
-
-    <div
-      class="upi-id"
-      id="upiId"
-    >
-      9631719340-2@ybl
-    </div>
+    <div class="upi-qr-grid">
 
 
-    <div style="margin-top:12px;">
+      <!-- ================= UPI QR 1 ================= -->
 
-      <button onclick="copyText('upiId')">
-        Copy UPI ID
-      </button>
+      <div class="upi-qr-slot">
+
+        <h3>
+          UPI 1
+        </h3>
+
+        <p>
+          Primary UPI
+        </p>
+
+        <div
+          class="upi-qr"
+          id="upiQr1"
+        ></div>
+
+        <span
+          class="upi-small-id"
+          id="upiId1"
+        >
+          9631719340-2@ybl
+        </span>
+
+        <div class="qr-actions">
+          <button onclick="copyText('upiId1')">
+            Copy UPI ID
+          </button>
+
+          <button
+            class="secondary"
+            onclick="downloadUpiQr(1)"
+          >
+            Download QR
+          </button>
+        </div>
+
+      </div>
+
+
+
+      <!-- ================= UPI QR 2 ================= -->
+
+      <div class="upi-qr-slot">
+
+        <h3>
+          UPI 2
+        </h3>
+
+        <p>
+          Alternative UPI
+        </p>
+
+        <div
+          class="upi-qr"
+          id="upiQr2"
+        ></div>
+
+        <span
+          class="upi-small-id"
+          id="upiId2"
+        >
+          YOUR_UPI_ID_2@BANK
+        </span>
+
+        <div class="qr-actions">
+          <button onclick="copyText('upiId2')">
+            Copy UPI ID
+          </button>
+
+          <button
+            class="secondary"
+            onclick="downloadUpiQr(2)"
+          >
+            Download QR
+          </button>
+        </div>
+
+      </div>
+
+
+
+      <!-- ================= UPI QR 3 ================= -->
+
+      <div class="upi-qr-slot">
+
+        <h3>
+          UPI 3
+        </h3>
+
+        <p>
+          Alternative UPI
+        </p>
+
+        <div
+          class="upi-qr"
+          id="upiQr3"
+        ></div>
+
+        <span
+          class="upi-small-id"
+          id="upiId3"
+        >
+          YOUR_UPI_ID_3@BANK
+        </span>
+
+        <div class="qr-actions">
+          <button onclick="copyText('upiId3')">
+            Copy UPI ID
+          </button>
+
+          <button
+            class="secondary"
+            onclick="downloadUpiQr(3)"
+          >
+            Download QR
+          </button>
+        </div>
+
+      </div>
 
     </div>
 
@@ -860,11 +1584,38 @@
 
       For a fundraiser targeting ₹5–20 lakh,
       <strong>
-        NEFT / IMPS / RTGS should therefore remain
-        the preferred payment method.
+        NEFT / IMPS / RTGS should remain the preferred payment method.
       </strong>
 
+      Please use these UPI options only if the bank-transfer
+      options above are unavailable or fail for you.
+
     </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       COMMENTS / MESSAGES
+       ===================================================== -->
+
+  <section class="card">
+
+    <h2>
+      Comments & Messages
+    </h2>
+
+    <p class="note" style="margin-bottom:0;">
+      Leave a message, words of support, or anything you would like the family to see.
+      Comments are public and are hosted through GitHub. A GitHub account is required to post.
+    </p>
+
+    <div class="comments-box" id="commentsBox">
+      <div class="comments-fallback">
+        Loading comments…
+      </div>
+    </div>
 
   </section>
 
@@ -951,6 +1702,7 @@
 <div id="toast">
   Copied!
 </div>
+
 
 
 
@@ -1077,17 +1829,39 @@ Branch: ${branch}`;
 
 
   /* =====================================================
-     UPI QR
+     THREE UPI QRS
      ===================================================== */
 
-  function createUpiQr() {
+  function createUpiQr(
+    qrElementId,
+    upiElementId
+  ) {
 
     const upiId =
-
       document
-      .getElementById("upiId")
+      .getElementById(upiElementId)
       .innerText
       .trim();
+
+
+    const qrElement =
+      document.getElementById(qrElementId);
+
+
+    /*
+      Leave a slot blank when it still contains a placeholder.
+    */
+
+    if (
+      !upiId ||
+      upiId.startsWith("YOUR_UPI_ID")
+    ) {
+
+      qrElement.innerHTML =
+        '<div style="color:#94a3b8;font-size:12px;">Add UPI ID</div>';
+
+      return;
+    }
 
 
     const upiUri =
@@ -1105,13 +1879,17 @@ Branch: ${branch}`;
 
     new QRCode(
 
-      document.getElementById("upiQr"),
+      qrElement,
 
       {
         text: upiUri,
-        width: 210,
-        height: 210,
-        correctLevel: QRCode.CorrectLevel.M
+
+        width: 175,
+
+        height: 175,
+
+        correctLevel:
+          QRCode.CorrectLevel.M
       }
 
     );
@@ -1119,12 +1897,137 @@ Branch: ${branch}`;
   }
 
 
+  /* =====================================================
+     DOWNLOAD UPI QR
+     ===================================================== */
+
+  function downloadUpiQr(number) {
+
+    const qrElement =
+      document.getElementById("upiQr" + number);
+
+    const image = qrElement.querySelector("img");
+    const canvas = qrElement.querySelector("canvas");
+
+    const upiId =
+      document
+      .getElementById("upiId" + number)
+      .innerText
+      .trim();
+
+    if (!upiId || upiId.startsWith("YOUR_UPI_ID")) {
+      showToast("Add a UPI ID first");
+      return;
+    }
+
+    const filename =
+      "upi-qr-" + number + "-" +
+      upiId.replace(/[^a-zA-Z0-9@._-]/g, "_") +
+      ".png";
+
+    const link = document.createElement("a");
+    link.download = filename;
+
+    if (canvas) {
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      return;
+    }
+
+    if (image) {
+      fetch(image.src)
+        .then(response => response.blob())
+        .then(blob => {
+          link.href = URL.createObjectURL(blob);
+          link.click();
+          setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+        })
+        .catch(() => {
+          /* Fallback: open the QR image if download is blocked. */
+          window.open(image.src, "_blank", "noopener,noreferrer");
+        });
+      return;
+    }
+
+    showToast("QR is not ready yet");
+  }
+
+
+  /* =====================================================
+     COMMENTS — UTTERANCES / GITHUB
+     ===================================================== */
+
+  function getGitHubRepoFromPagesUrl() {
+
+    const host = window.location.hostname;
+    const pathParts =
+      window.location.pathname
+      .split("/")
+      .filter(Boolean);
+
+    if (host.endsWith(".github.io")) {
+      const owner = host.split(".")[0];
+      const repoName = pathParts[0] || "flood-relief";
+      return owner + "/" + repoName;
+    }
+
+    /* Fallback for a custom domain: change this if needed. */
+    return "YOUR_GITHUB_USERNAME/flood-relief";
+  }
+
+
+  function loadComments() {
+
+    const box =
+      document.getElementById("commentsBox");
+
+    const repo = getGitHubRepoFromPagesUrl();
+
+    if (repo.startsWith("YOUR_GITHUB_USERNAME/")) {
+      box.innerHTML = `
+        <div class="comments-fallback">
+          Comments need the GitHub repository name configured in
+          <code>getGitHubRepoFromPagesUrl()</code> before they can be displayed.
+        </div>
+      `;
+      return;
+    }
+
+    const script =
+      document.createElement("script");
+
+    script.src =
+      "https://utteranc.es/client.js";
+
+    script.async = true;
+
+    script.crossOrigin = "anonymous";
+
+    script.setAttribute("repo", repo);
+
+    script.setAttribute("issue-term", "pathname");
+
+    script.setAttribute("theme", "github-light");
+
+    script.setAttribute("label", "comments");
+
+    box.innerHTML = "";
+
+    box.appendChild(script);
+  }
+
 
   /* =====================================================
      INITIALISE
      ===================================================== */
 
-  createUpiQr();
+  createUpiQr("upiQr1", "upiId1");
+
+  createUpiQr("upiQr2", "upiId2");
+
+  createUpiQr("upiQr3", "upiId3");
+
+  loadComments();
 
 </script>
 
