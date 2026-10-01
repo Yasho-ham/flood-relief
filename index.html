@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0f172a">
+
   <title>Flood Relief Support</title>
 
   <style>
@@ -19,14 +20,16 @@
     }
 
     .container {
-      width: min(700px, 92%);
+      width: min(760px, 92%);
       margin: auto;
-      padding: 25px 0 50px;
+      padding: 24px 0 50px;
     }
+
+    /* ---------------- HERO ---------------- */
 
     .hero {
       text-align: center;
-      padding: 20px 0;
+      padding: 18px 0 10px;
     }
 
     .badge {
@@ -35,24 +38,29 @@
       padding: 7px 12px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: bold;
+      font-weight: 800;
       letter-spacing: 0.05em;
     }
 
     h1 {
-      font-size: 40px;
+      font-size: clamp(32px, 8vw, 46px);
       margin: 15px 0 10px;
-      line-height: 1.1;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
     }
 
     .subtitle {
       color: #64748b;
       font-size: 17px;
       line-height: 1.6;
+      max-width: 650px;
+      margin: auto;
     }
 
+    /* ---------------- CARDS ---------------- */
+
     .card {
-      background: white;
+      background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 18px;
       padding: 22px;
@@ -61,58 +69,96 @@
     }
 
     .card h2 {
-      margin-top: 0;
+      margin: 0 0 7px;
+      font-size: 23px;
     }
 
-    .qr-section {
-      text-align: center;
-    }
-
-    #qrcode {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .qr-note {
+    .note {
       color: #64748b;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    .bank-row {
+    /* ---------------- PREFERRED MESSAGE ---------------- */
+
+    .preferred {
+      border-left: 5px solid #0f172a;
+      background: #f8fafc;
+    }
+
+    .preferred strong {
+      color: #0f172a;
+    }
+
+    /* ---------------- BENEFICIARY ---------------- */
+
+    .beneficiary {
+      border: 1px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 16px;
+      margin-top: 14px;
+      background: #ffffff;
+    }
+
+    .beneficiary-title {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 12px;
-      background: #f1f5f9;
-      margin-top: 10px;
-      padding: 14px;
-      border-radius: 12px;
+      align-items: center;
+      margin-bottom: 11px;
     }
 
-    .bank-info {
+    .beneficiary-title h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .tag {
+      background: #e2e8f0;
+      color: #334155;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 11px;
+      margin-top: 8px;
+    }
+
+    .info {
       min-width: 0;
     }
 
     .label {
       color: #64748b;
-      font-size: 12px;
-      font-weight: bold;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
       margin-bottom: 3px;
     }
 
     .value {
-      font-weight: bold;
-      font-size: 16px;
+      font-size: 15px;
+      font-weight: 800;
       overflow-wrap: anywhere;
     }
 
+    /* ---------------- BUTTONS ---------------- */
+
     button {
       border: 0;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-weight: bold;
+      border-radius: 9px;
+      padding: 9px 12px;
+      font-weight: 800;
       cursor: pointer;
       background: #0f172a;
       color: white;
@@ -127,19 +173,63 @@
     .buttons {
       display: flex;
       gap: 10px;
-      justify-content: center;
-      margin-top: 15px;
       flex-wrap: wrap;
+      margin-top: 13px;
     }
 
+    /* ---------------- UPI ---------------- */
+
+    .upi-card {
+      text-align: center;
+    }
+
+    #upiQr {
+      display: flex;
+      justify-content: center;
+      margin: 18px 0 12px;
+    }
+
+    .upi-id {
+      display: inline-block;
+      background: #f1f5f9;
+      border-radius: 9px;
+      padding: 9px 12px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    /* ---------------- UPI LIMIT NOTICE ---------------- */
+
+    .limit-box {
+      text-align: left;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 13px;
+      padding: 15px;
+      margin-top: 16px;
+    }
+
+    .limit-box strong {
+      color: #9a3412;
+    }
+
+    .limit-box p {
+      color: #7c2d12;
+      margin-bottom: 0;
+    }
+
+    /* ---------------- INSTRUCTIONS ---------------- */
+
     ol {
-      padding-left: 22px;
+      padding-left: 21px;
       color: #475569;
     }
 
     li {
-      margin: 10px 0;
+      margin: 9px 0;
     }
+
+    /* ---------------- SAFETY ---------------- */
 
     .warning {
       background: #fff7ed;
@@ -150,12 +240,16 @@
       color: #9a3412;
     }
 
+    /* ---------------- FOOTER ---------------- */
+
     .footer {
       text-align: center;
       color: #64748b;
       font-size: 13px;
       margin-top: 20px;
     }
+
+    /* ---------------- TOAST ---------------- */
 
     #toast {
       position: fixed;
@@ -167,200 +261,788 @@
       padding: 10px 15px;
       border-radius: 10px;
       display: none;
+      z-index: 50;
     }
 
-    @media (max-width: 550px) {
-      h1 {
-        font-size: 32px;
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 560px) {
+
+      .container {
+        width: min(100% - 18px, 760px);
       }
 
-      .bank-row {
+      .card {
+        padding: 17px;
+      }
+
+      .row {
         align-items: flex-start;
       }
 
-      .bank-row button {
+      .beneficiary-title {
+        align-items: flex-start;
+      }
+
+      .row button {
         padding: 8px 10px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
 <div class="container">
 
-  <section class="hero">
-    <div class="badge">URGENT FLOOD RELIEF</div>
 
-    <h1>Help Rebuild Our Home</h1>
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <section class="hero">
+
+    <div class="badge">
+      URGENT FLOOD RELIEF
+    </div>
+
+    <h1>
+      Help Rebuild Our Home
+    </h1>
 
     <p class="subtitle">
-      Our home in Haijalpur, Bihar, was completely destroyed by the recent flooding.
-      We are raising financial support for immediate family needs and recovery.
+      Our home in Haijalpur, Bihar, was completely destroyed
+      by the recent flooding. We are raising financial support
+      for immediate family needs and recovery.
     </p>
-  </section>
-
-
-  <!-- QR -->
-  <section class="card qr-section">
-
-    <h2>Scan to Get Bank Transfer Details</h2>
-
-    <div id="qrcode"></div>
-
-    <p class="qr-note">
-      This is a website QR, not a UPI QR.
-      Scan it to open this page and quickly copy the HDFC bank details below.
-    </p>
-
-    <div class="buttons">
-      <button onclick="sharePage()">Share Page</button>
-      <button class="secondary" onclick="copyAll()">Copy All Details</button>
-    </div>
 
   </section>
 
 
-  <!-- BANK DETAILS -->
+
+  <!-- =====================================================
+       PREFERRED PAYMENT METHOD
+       ===================================================== -->
+
+  <section class="card preferred">
+
+    <h2>
+      Please Prefer Bank Transfer
+    </h2>
+
+    <p class="note" style="margin-bottom:0">
+
+      For larger contributions, please prefer
+      <strong>NEFT / IMPS / RTGS</strong>
+      to the bank accounts below.
+
+      This is more practical for a large fundraiser because
+      UPI has account-level and transaction limits.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       BANK TRANSFER DETAILS
+       ===================================================== -->
+
   <section class="card">
 
-    <h2>HDFC Bank Transfer</h2>
+    <h2>
+      Bank Transfer Details
+    </h2>
 
-    <p class="qr-note">
-      You can transfer using NEFT, IMPS or RTGS through your bank.
+    <p class="note">
+
+      You may transfer to any of the beneficiary accounts below.
+
+      Please enter the details exactly as shown and verify
+      the beneficiary name displayed by your bank before
+      confirming the payment.
+
     </p>
 
 
-    <div class="bank-row">
-      <div class="bank-info">
-        <div class="label">ACCOUNT HOLDER</div>
-        <div class="value" id="accountName">
-          YOUR NAME
-        </div>
+    <!-- =================================================
+         BENEFICIARY 1
+         ================================================= -->
+
+    <div class="beneficiary">
+
+      <div class="beneficiary-title">
+
+        <h3>
+          Beneficiary 1
+        </h3>
+
+        <span class="tag">
+          PRIMARY
+        </span>
+
       </div>
 
-      <button onclick="copyText('accountName')">Copy</button>
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            ACCOUNT HOLDER
+          </div>
+
+          <div class="value" id="name1">
+            YOUR NAME 1
+          </div>
+
+        </div>
+
+        <button onclick="copyText('name1')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            BANK
+          </div>
+
+          <div class="value" id="bank1">
+            HDFC Bank
+          </div>
+
+        </div>
+
+        <button onclick="copyText('bank1')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            ACCOUNT NUMBER
+          </div>
+
+          <div class="value" id="account1">
+            YOUR_ACCOUNT_NUMBER_1
+          </div>
+
+        </div>
+
+        <button onclick="copyText('account1')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            IFSC
+          </div>
+
+          <div class="value" id="ifsc1">
+            YOUR_IFSC_1
+          </div>
+
+        </div>
+
+        <button onclick="copyText('ifsc1')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            BRANCH
+          </div>
+
+          <div class="value" id="branch1">
+            YOUR BRANCH 1
+          </div>
+
+        </div>
+
+        <button onclick="copyText('branch1')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <button onclick="copyBeneficiary(1)">
+          Copy All Details
+        </button>
+
+      </div>
+
     </div>
 
 
-    <div class="bank-row">
-      <div class="bank-info">
-        <div class="label">BANK</div>
-        <div class="value">
-          HDFC Bank
-        </div>
+
+    <!-- =================================================
+         BENEFICIARY 2
+         ================================================= -->
+
+    <div class="beneficiary">
+
+      <div class="beneficiary-title">
+
+        <h3>
+          Beneficiary 2
+        </h3>
+
+        <span class="tag">
+          OPTIONAL
+        </span>
+
       </div>
 
-      <button onclick="copyValue('HDFC Bank')">Copy</button>
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            ACCOUNT HOLDER
+          </div>
+
+          <div class="value" id="name2">
+            YOUR NAME 2
+          </div>
+
+        </div>
+
+        <button onclick="copyText('name2')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            BANK
+          </div>
+
+          <div class="value" id="bank2">
+            YOUR BANK 2
+          </div>
+
+        </div>
+
+        <button onclick="copyText('bank2')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            ACCOUNT NUMBER
+          </div>
+
+          <div class="value" id="account2">
+            YOUR_ACCOUNT_NUMBER_2
+          </div>
+
+        </div>
+
+        <button onclick="copyText('account2')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            IFSC
+          </div>
+
+          <div class="value" id="ifsc2">
+            YOUR_IFSC_2
+          </div>
+
+        </div>
+
+        <button onclick="copyText('ifsc2')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            BRANCH
+          </div>
+
+          <div class="value" id="branch2">
+            YOUR BRANCH 2
+          </div>
+
+        </div>
+
+        <button onclick="copyText('branch2')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <button onclick="copyBeneficiary(2)">
+          Copy All Details
+        </button>
+
+      </div>
+
     </div>
 
 
-    <div class="bank-row">
-      <div class="bank-info">
-        <div class="label">ACCOUNT NUMBER</div>
-        <div class="value" id="accountNumber">
-          YOUR_ACCOUNT_NUMBER
-        </div>
+
+    <!-- =================================================
+         BENEFICIARY 3
+         ================================================= -->
+
+    <div class="beneficiary">
+
+      <div class="beneficiary-title">
+
+        <h3>
+          Beneficiary 3
+        </h3>
+
+        <span class="tag">
+          OPTIONAL
+        </span>
+
       </div>
 
-      <button onclick="copyText('accountNumber')">Copy</button>
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            ACCOUNT HOLDER
+          </div>
+
+          <div class="value" id="name3">
+            YOUR NAME 3
+          </div>
+
+        </div>
+
+        <button onclick="copyText('name3')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            BANK
+          </div>
+
+          <div class="value" id="bank3">
+            YOUR BANK 3
+          </div>
+
+        </div>
+
+        <button onclick="copyText('bank3')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            ACCOUNT NUMBER
+          </div>
+
+          <div class="value" id="account3">
+            YOUR_ACCOUNT_NUMBER_3
+          </div>
+
+        </div>
+
+        <button onclick="copyText('account3')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            IFSC
+          </div>
+
+          <div class="value" id="ifsc3">
+            YOUR_IFSC_3
+          </div>
+
+        </div>
+
+        <button onclick="copyText('ifsc3')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="info">
+
+          <div class="label">
+            BRANCH
+          </div>
+
+          <div class="value" id="branch3">
+            YOUR BRANCH 3
+          </div>
+
+        </div>
+
+        <button onclick="copyText('branch3')">
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <button onclick="copyBeneficiary(3)">
+          Copy All Details
+        </button>
+
+      </div>
+
     </div>
 
 
-    <div class="bank-row">
-      <div class="bank-info">
-        <div class="label">IFSC</div>
-        <div class="value" id="ifsc">
-          YOUR_IFSC
-        </div>
-      </div>
+    <p class="note" style="margin-top:15px">
 
-      <button onclick="copyText('ifsc')">Copy</button>
+      Only publish beneficiary accounts that have been
+      verified and are intended to receive the fundraiser
+      proceeds.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       UPI
+       ===================================================== -->
+
+  <section class="card upi-card">
+
+    <h2>
+      UPI — For Small / Convenient Payments
+    </h2>
+
+    <p class="note">
+
+      UPI is available for convenience.
+
+      However, for larger contributions,
+      please prefer bank transfer to the accounts above.
+
+    </p>
+
+
+    <!-- UPI QR CODE -->
+
+    <div id="upiQr"></div>
+
+
+    <div class="label">
+      UPI ID
+    </div>
+
+    <div class="upi-id" id="upiId">
+      YOUR_UPI_ID@BANK
     </div>
 
 
-    <div class="bank-row">
-      <div class="bank-info">
-        <div class="label">BRANCH</div>
-        <div class="value" id="branch">
-          YOUR HDFC BRANCH
-        </div>
-      </div>
+    <div class="buttons" style="justify-content:center">
 
-      <button onclick="copyText('branch')">Copy</button>
+      <button onclick="copyText('upiId')">
+        Copy UPI ID
+      </button>
+
     </div>
 
+
+    <!-- LIMIT INFORMATION -->
+
+    <div class="limit-box">
+
+      <strong>
+        Why bank transfer is preferred
+      </strong>
+
+      <p>
+
+        HDFC currently states that incoming
+        UPI Person-to-Person (P2P) payments can have
+        up to <strong>50 successful inward transactions
+        in a rolling 24-hour period</strong>.
+
+        For incoming P2P payments
+        <strong>above ₹2,000</strong>, HDFC states an
+        additional limit of
+
+        <strong>
+          25 transactions OR ₹4 lakh total
+          in 24 hours,
+        </strong>
+
+        whichever is reached first.
+
+        These limits apply at the account level.
+
+      </p>
+
+
+      <p>
+
+        Normal UPI P2P payments also generally have
+        a <strong>₹1 lakh per-transaction ceiling</strong>,
+        although the donor's own bank or UPI app may
+        impose a lower limit.
+
+      </p>
+
+    </div>
+
+
+    <p class="note">
+
+      For this ₹5–20 lakh fundraiser,
+      please use <strong>NEFT / IMPS / RTGS</strong>
+      whenever practical.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       BANK TRANSFER INSTRUCTIONS
+       ===================================================== -->
+
+  <section class="card">
+
+    <h2>
+      How to Transfer by Bank
+    </h2>
 
     <ol>
-      <li>Add the beneficiary if your bank requires it.</li>
-      <li>Enter the account number and IFSC exactly as shown.</li>
-      <li>Choose NEFT, IMPS or RTGS.</li>
-      <li>Before confirming, verify the beneficiary name shown by your bank.</li>
-      <li>Keep your transaction / UTR reference.</li>
+
+      <li>
+        Choose one beneficiary account above.
+      </li>
+
+      <li>
+        Add the beneficiary in your banking app,
+        if required.
+      </li>
+
+      <li>
+        Enter the account number and IFSC exactly
+        as shown.
+      </li>
+
+      <li>
+        Choose NEFT, IMPS or RTGS.
+      </li>
+
+      <li>
+        Verify the beneficiary name shown by your bank
+        before confirming the payment.
+      </li>
+
+      <li>
+        Keep your transaction / UTR reference
+        for your records.
+      </li>
+
     </ol>
 
   </section>
 
 
-  <!-- FUNDRAISER -->
+
+  <!-- =====================================================
+       FUNDRAISING GOAL
+       ===================================================== -->
+
   <section class="card">
 
-    <h2>Fundraising Goal</h2>
+    <h2>
+      Fundraising Goal
+    </h2>
 
     <p>
+
       We are aiming to raise approximately
       <strong>₹5–20 lakh</strong>
-      to help our family recover from the flood and rebuild.
+      to help our family recover from the flood
+      and rebuild.
+
     </p>
 
-    <p class="qr-note">
+    <p class="note">
+
       Contributions of any amount are deeply appreciated.
-      Please share this page with friends, professors, alumni and well-wishers.
+
+      Please share this page with professors,
+      alumni, friends and well-wishers.
+
     </p>
 
   </section>
 
 
-  <!-- SAFETY -->
+
+  <!-- =====================================================
+       SAFETY
+       ===================================================== -->
+
   <section class="card warning">
 
-    <strong>Important Safety Reminder</strong>
+    <strong>
+      Important Safety Reminder
+    </strong>
 
-    <p>
-      Bank transfers require beneficiary information only.
-      Never share or ask anyone for an OTP, UPI PIN, debit-card PIN,
-      CVV, NetBanking password or login credentials.
+    <p class="note"
+       style="color:#7c2d12;margin-bottom:0">
+
+      A bank transfer requires beneficiary details only.
+
+      Never share or ask anyone for an OTP,
+      UPI PIN, debit-card PIN, CVV,
+      NetBanking password or login credentials.
+
     </p>
 
   </section>
 
 
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
   <div class="footer">
-    Thank you for helping our family during this difficult time.
+
+    Thank you for helping our family
+    during this difficult time.
+
   </div>
+
 
 </div>
 
 
-<div id="toast">Copied</div>
+
+<!-- TOAST -->
+
+<div id="toast">
+  Copied!
+</div>
 
 
-<!-- QR CODE LIBRARY -->
+
+<!-- =====================================================
+     QR CODE LIBRARY
+     ===================================================== -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
+
+
 <script>
+
+  /* =====================================================
+     COPY FUNCTIONS
+     ===================================================== */
 
   function showToast(message) {
 
     const toast = document.getElementById("toast");
 
     toast.innerText = message;
+
     toast.style.display = "block";
 
-    setTimeout(() => {
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(function () {
+
       toast.style.display = "none";
+
     }, 1800);
+
   }
+
 
 
   async function copyValue(value) {
@@ -371,88 +1053,141 @@
 
       showToast("Copied!");
 
-    } catch {
+    }
 
-      showToast("Copy failed");
+    catch (error) {
+
+      showToast("Copy failed — please copy manually");
 
     }
 
   }
 
 
+
   function copyText(id) {
 
     const value =
-      document.getElementById(id).innerText.trim();
+      document.getElementById(id)
+      .innerText
+      .trim();
 
     copyValue(value);
 
   }
 
 
-  function copyAll() {
 
-    const text = `
-HDFC Bank
+  /* =====================================================
+     COPY COMPLETE BENEFICIARY
+     ===================================================== */
 
-Account Holder:
-${document.getElementById("accountName").innerText.trim()}
+  function copyBeneficiary(number) {
 
-Account Number:
-${document.getElementById("accountNumber").innerText.trim()}
+    const name =
+      document.getElementById("name" + number)
+      .innerText
+      .trim();
 
-IFSC:
-${document.getElementById("ifsc").innerText.trim()}
+    const bank =
+      document.getElementById("bank" + number)
+      .innerText
+      .trim();
 
-Branch:
-${document.getElementById("branch").innerText.trim()}
-`;
+    const account =
+      document.getElementById("account" + number)
+      .innerText
+      .trim();
+
+    const ifsc =
+      document.getElementById("ifsc" + number)
+      .innerText
+      .trim();
+
+    const branch =
+      document.getElementById("branch" + number)
+      .innerText
+      .trim();
+
+
+    const text =
+
+`Account Holder: ${name}
+Bank: ${bank}
+Account Number: ${account}
+IFSC: ${ifsc}
+Branch: ${branch}`;
+
 
     copyValue(text);
 
   }
 
 
-  async function sharePage() {
 
-    try {
+  /* =====================================================
+     GENERATE UPI QR
+     =====================================================
 
-      if (navigator.share) {
+     Replace YOUR_UPI_ID@BANK above.
 
-        await navigator.share({
-          title: "Flood Relief Support",
-          text: "Please see the bank transfer details for flood-relief support.",
-          url: window.location.href
-        });
+     Example:
 
-      } else {
+     satyamkumar@hdfcbank
 
-        copyValue(window.location.href);
+     The QR will contain:
+
+     upi://pay?pa=YOUR_UPI_ID@BANK
+     &pn=Flood Relief Support
+     &cu=INR
+  */
+
+  function createUpiQr() {
+
+    const upiId =
+
+      document
+      .getElementById("upiId")
+      .innerText
+      .trim();
+
+
+    const upiUri =
+
+      "upi://pay" +
+      "?pa=" + encodeURIComponent(upiId) +
+      "&pn=" + encodeURIComponent("Flood Relief Support") +
+      "&cu=INR";
+
+
+    new QRCode(
+
+      document.getElementById("upiQr"),
+
+      {
+
+        text: upiUri,
+
+        width: 210,
+
+        height: 210,
+
+        correctLevel: QRCode.CorrectLevel.M
 
       }
 
-    } catch {}
+    );
 
   }
 
 
-  /*
-    IMPORTANT:
-    This QR automatically contains the URL of this webpage.
-    Once GitHub Pages publishes the site, scanning the QR
-    opens the live website.
-  */
 
-  new QRCode(
-    document.getElementById("qrcode"),
-    {
-      text: window.location.href,
-      width: 210,
-      height: 210
-    }
-  );
+  /* CREATE QR */
+
+  createUpiQr();
 
 </script>
+
 
 </body>
 </html>
