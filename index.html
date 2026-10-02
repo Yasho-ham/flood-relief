@@ -83,12 +83,33 @@
     /* ================= PREFERRED ================= */
 
     .preferred {
-      border-left: 5px solid #0f172a;
-      background: #f8fafc;
+      border: 1px solid #0f172a;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+
+    .preferred h2 {
+      color: #ffffff;
+    }
+
+    .preferred .note {
+      color: #cbd5e1;
     }
 
     .preferred strong {
-      color: #0f172a;
+      color: #ffffff;
+    }
+
+    .preferred-badge {
+      display: inline-block;
+      background: #16a34a;
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      margin-bottom: 10px;
     }
 
     /* ================= BENEFICIARIES ================= */
@@ -202,15 +223,17 @@
     }
 
     .fallback {
-      display: inline-block;
+      display: block;
       background: #fff7ed;
-      border: 1px solid #fed7aa;
+      border: 1px solid #fdba74;
+      border-left: 5px solid #ea580c;
       color: #9a3412;
-      border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 11px;
+      border-radius: 12px;
+      padding: 13px 16px;
+      font-size: 14px;
       font-weight: 800;
-      letter-spacing: .04em;
+      letter-spacing: .02em;
+      text-align: center;
     }
 
     #upiQr {
@@ -443,14 +466,102 @@
       font-size: 13px;
     }
 
+    /* ================= FULL-WIDTH IMPACT PHOTOS ================= */
+
+    .impact-photo {
+      margin: 16px 0 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .impact-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .impact-photo figcaption {
+      padding: 11px 14px;
+      font-size: 13px;
+      color: #64748b;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* ================= LOSS ROW (PHOTO + HOME VIDEO) ================= */
+
+    .loss-row {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .loss-row .impact-photo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-video-wrap {
+      flex: 1;
+      position: relative;
+      background: #000000;
+    }
+
+    .home-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .contact-item {
+      display: block;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: #f8fafc;
+      text-decoration: none;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    .contact-value {
+      display: block;
+      margin-top: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      overflow-wrap: anywhere;
+    }
+
     /* ================= THREE UPI QRS ================= */
 
     .upi-qr-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       margin: 18px auto 12px;
-      max-width: 690px;
+      max-width: 790px;
     }
 
     .upi-qr-slot {
@@ -513,6 +624,16 @@
         max-width: 300px;
       }
 
+      .loss-row,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-video {
+        position: static;
+        height: auto;
+      }
+
     }
 
 
@@ -564,9 +685,7 @@
     .google-flood-preview-image {
       display: block;
       width: 100%;
-      height: 285px;
-      object-fit: cover;
-      object-position: center;
+      height: auto;
       transition: transform .18s ease;
     }
 
@@ -762,7 +881,7 @@
 
   <!-- PERSONAL INTRO -->
   <section class="card intro-card">
-    <h2>Who I Am</h2>
+    <h2>Who Am I</h2>
 
     <div class="intro-preview" id="introPreview">
       <p class="intro-text">
@@ -848,14 +967,66 @@
   <section class="card impact-section">
 
     <h2>
-      Affected Area
+      What the Flood Took From Us
     </h2>
 
     <p class="note">
       Haijalpur, Badhakaul Panchayat, Maker Block, Saran, Bihar.
-      The preview below is from Google's flood information view.
-      Click it to open the interactive map and explore the area.
     </p>
+
+
+    <!-- ================= WHAT WE LOST: PHOTO + HOME VIDEO ================= -->
+
+    <div class="loss-row">
+
+      <figure class="impact-photo">
+
+        <img
+          src="house-before-after.jpg"
+          alt="Satyam's family home before the flood — an intact yellow and blue two-storey house — and the same house reduced to rubble in the floodwater"
+          width="2000"
+          height="1600"
+        >
+
+        <figcaption>
+          Our home — a lifetime of memories, swallowed by the flood in moments
+        </figcaption>
+
+      </figure>
+
+
+      <figure class="impact-photo">
+
+        <div class="home-video-wrap">
+
+          <video
+            class="home-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+            preload="metadata"
+          >
+
+            <source
+              src="home-flood-video.mp4"
+              type="video/mp4"
+            >
+
+            Your browser does not support MP4 video playback.
+
+          </video>
+
+        </div>
+
+        <figcaption>
+          Our home, as the flood took it
+        </figcaption>
+
+      </figure>
+
+    </div>
 
 
     <div class="impact-grid">
@@ -871,10 +1042,6 @@
             Affected area
           </h3>
 
-          <p>
-            Flood prediction for tomorrow evening
-          </p>
-
         </div>
 
 
@@ -887,8 +1054,8 @@
         >
 
           <img
-            src="google-flood-forecast-preview.png"
-            alt="Google flood forecast view showing the affected area around Haijalpur and the Gandak River"
+            src="flood-extent-saran.png"
+            alt="Satellite view of the floodwaters spread across Maker block, Saran"
             class="google-flood-preview-image"
           >
 
@@ -971,7 +1138,7 @@
           </h3>
 
           <p>
-            Video from the affected area — autoplay, muted
+            Video from the affected area
           </p>
 
         </div>
@@ -995,13 +1162,6 @@
 
         </video>
 
-        <div class="impact-caption">
-
-          The video is stored locally with this website and is
-          shown muted by default.
-
-        </div>
-
       </div>
 
     </div>
@@ -1015,6 +1175,10 @@
        ===================================================== -->
 
   <section class="card preferred">
+
+    <span class="preferred-badge">
+      ✓ RECOMMENDED
+    </span>
 
     <h2>
       Please Prefer Bank Transfer
@@ -1403,7 +1567,7 @@
     </div>
 
     <h2 style="margin-top:14px;">
-      UPI — Fallback Option
+      UPI
     </h2>
 
     <p class="note">
@@ -1444,7 +1608,7 @@
           class="upi-small-id"
           id="upiId1"
         >
-          9631719340-2@ybl
+          i.vikas101-1@okicici
         </span>
 
         <div class="qr-actions">
@@ -1544,6 +1708,47 @@
 
       </div>
 
+
+
+      <!-- ================= UPI QR 4 ================= -->
+
+      <div class="upi-qr-slot">
+
+        <h3>
+          UPI 4
+        </h3>
+
+        <p>
+          Alternative UPI
+        </p>
+
+        <div
+          class="upi-qr"
+          id="upiQr4"
+        ></div>
+
+        <span
+          class="upi-small-id"
+          id="upiId4"
+        >
+          9631719340-2@ybl
+        </span>
+
+        <div class="qr-actions">
+          <button onclick="copyText('upiId4')">
+            Copy UPI ID
+          </button>
+
+          <button
+            class="secondary"
+            onclick="downloadUpiQr(4)"
+          >
+            Download QR
+          </button>
+        </div>
+
+      </div>
+
     </div>
 
 
@@ -1621,6 +1826,61 @@
       options above are unavailable or fail for you.
 
     </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CONTACT
+       ===================================================== -->
+
+  <section class="card contact-card">
+
+    <h2>
+      Contact
+    </h2>
+
+    <p class="note">
+      If you have any questions, would like to verify anything,
+      or prefer to talk before contributing, please reach out
+      directly.
+    </p>
+
+    <div class="contact-grid">
+
+      <a
+        class="contact-item"
+        href="tel:+919113478265"
+      >
+
+        <span class="contact-label">
+          Phone
+        </span>
+
+        <span class="contact-value">
+          +91 91134 78265
+        </span>
+
+      </a>
+
+
+      <a
+        class="contact-item"
+        href="mailto:satyam_k@ece.iitr.ac.in"
+      >
+
+        <span class="contact-label">
+          Email
+        </span>
+
+        <span class="contact-value">
+          satyam_k@ece.iitr.ac.in
+        </span>
+
+      </a>
+
+    </div>
 
   </section>
 
@@ -2068,6 +2328,8 @@ Branch: ${branch}`;
   createUpiQr("upiQr2", "upiId2");
 
   createUpiQr("upiQr3", "upiId3");
+
+  createUpiQr("upiQr4", "upiId4");
 
   loadComments();
 
