@@ -554,6 +554,506 @@
       overflow-wrap: anywhere;
     }
 
+    /* ================= ENDORSEMENT FLOAT ================= */
+
+    .endorsement-float {
+      position: fixed;
+      z-index: 60;
+    }
+
+    .ef-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ef-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .ef-count {
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .ef-viewport {
+      overflow: hidden;
+    }
+
+    .ef-track {
+      display: flex;
+      height: 100%;
+      transition: transform .6s ease;
+    }
+
+    .ef-track.no-anim {
+      transition: none;
+    }
+
+    .ef-item {
+      flex: 0 0 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .ef-name {
+      font-size: 13px;
+      font-weight: 800;
+      transition: font-size .3s ease;
+    }
+
+    .ef-desig {
+      color: #94a3b8;
+    }
+
+    .ef-org {
+      font-weight: 700;
+    }
+
+    .ef-msg {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .ef-fallback {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .ef-cta-circle {
+      border: none;
+      cursor: pointer;
+      font-weight: 800;
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    /* laptop: floating light capsule with circles */
+    @media (min-width: 1250px) {
+
+      .endorsement-float {
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px 16px 999px 999px;
+        padding: 12px 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, .12);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .ef-head {
+        display: block;
+        align-self: stretch;
+        text-align: center;
+        background: #0f172a;
+        margin: -12px -10px 10px;
+        padding: 10px 12px;
+      }
+
+      .ef-title {
+        font-size: 11px;
+        color: #ffffff;
+      }
+
+      .ef-count {
+        display: block;
+        margin-top: 2px;
+        font-size: 9px;
+        color: #94a3b8;
+      }
+
+      .ef-viewport {
+        width: 104px;
+        height: 104px;
+      }
+
+      .ef-window .ef-viewport {
+        height: 332px;
+      }
+
+      .ef-track {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+        width: 104px;
+      }
+
+      .ef-item {
+        flex: none;
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 8px;
+      }
+
+      .ef-item.ef-active {
+        background: #e2e8f0;
+      }
+
+      .ef-name {
+        color: #0f172a;
+        font-size: 11.5px;
+        line-height: 1.2;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .ef-item.ef-active .ef-name {
+        font-size: 13px;
+      }
+
+      .ef-desig,
+      .ef-org {
+        max-width: 100%;
+        line-height: 1.3;
+      }
+
+      .ef-desig {
+        font-size: 10px;
+        color: #94a3b8;
+        margin-top: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .ef-org {
+        font-size: 10px;
+        font-weight: 700;
+        color: #64748b;
+        margin-top: 1px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .ef-msg {
+        display: none;
+      }
+
+      .ef-fallback {
+        color: #64748b;
+        justify-content: center;
+      }
+
+      .ef-cta-circle {
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        font-size: 14px;
+        line-height: 1.3;
+        padding: 10px;
+        margin-top: 10px;
+        background: #0f172a;
+        color: #ffffff;
+      }
+
+      .ef-cta-circle:hover {
+        background: #1e293b;
+      }
+
+    }
+
+    /* phone / tablet: horizontal capsule, navy tab on the left,
+       floating centre-bottom slightly above the edge */
+    @media (max-width: 1249px) {
+
+      body {
+        padding-bottom: 150px;
+      }
+
+      .endorsement-float {
+        left: 50%;
+        bottom: 16px;
+        transform: translateX(-50%);
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 0 999px 999px 0;
+        padding: 8px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, .15);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .ef-head {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        align-self: stretch;
+        background: #0f172a;
+        margin: -8px 0 -8px -8px;
+        padding: 8px 10px;
+      }
+
+      .ef-title {
+        font-size: 9px;
+        color: #ffffff;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+      }
+
+      .ef-count {
+        display: block;
+        font-size: 8px;
+        color: #94a3b8;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+      }
+
+      .ef-viewport {
+        width: 88px;
+        height: 88px;
+      }
+
+      .ef-track {
+        gap: 8px;
+      }
+
+      .ef-item {
+        flex: none;
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 6px;
+      }
+
+      .ef-item.ef-active {
+        background: #e2e8f0;
+      }
+
+      .ef-name {
+        font-size: 10.5px;
+        color: #0f172a;
+        line-height: 1.2;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .ef-item.ef-active .ef-name {
+        font-size: 11.5px;
+      }
+
+      .ef-desig,
+      .ef-org {
+        max-width: 100%;
+        line-height: 1.25;
+      }
+
+      .ef-desig {
+        font-size: 9px;
+        color: #94a3b8;
+        margin-top: 1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .ef-org {
+        font-size: 9px;
+        font-weight: 700;
+        color: #64748b;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .ef-msg {
+        display: none;
+      }
+
+      .ef-fallback {
+        color: #64748b;
+        justify-content: center;
+        font-size: 10px;
+      }
+
+      .ef-cta-circle {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        font-size: 11px;
+        line-height: 1.25;
+        padding: 8px;
+        background: #0f172a;
+        color: #ffffff;
+      }
+
+    }
+
+    /* ================= ENDORSE DIALOG ================= */
+
+    dialog {
+      border: none;
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 450px;
+      width: 90%;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, .15);
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    dialog::backdrop {
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .dialog-header h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .dialog-close {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      padding: 0;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .community-prompt {
+      margin: 7px 0 14px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .community-form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .community-field label {
+      display: block;
+      margin-bottom: 4px;
+      color: #475569;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    .community-field input,
+    .community-field textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      padding: 9px 10px;
+      color: #0f172a;
+      font: inherit;
+    }
+
+    .community-field textarea {
+      min-height: 86px;
+      resize: vertical;
+    }
+
+    .community-status {
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    /* ================= ADMIN / MODERATION ================= */
+
+    .admin-section {
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    .admin-access {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .admin-panel {
+      display: none;
+      margin-top: 16px;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .admin-panel.open {
+      display: block;
+    }
+
+    .admin-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .admin-item {
+      padding: 12px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #f8fafc;
+    }
+
+    .admin-kind {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 9px;
+    }
+
+    .admin-actions button {
+      font-size: 12px;
+    }
+
     /* ================= THREE UPI QRS ================= */
 
     .upi-qr-grid {
@@ -764,12 +1264,30 @@
 
     /* ================= COMMENTS ================= */
 
-    .comments-box {
+    .comment-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .comment-item {
+      padding: 12px 14px;
       border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #ffffff;
-      margin-top: 14px;
+      border-radius: 12px;
+      background: #f8fafc;
+    }
+
+    .comment-name {
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .comment-message {
+      margin: 5px 0 0;
+      color: #475569;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre-wrap;
     }
 
     .comments-fallback {
@@ -1893,17 +2411,48 @@
   <section class="card">
 
     <h2>
-      Comments & Messages
+      Messages of Support
     </h2>
 
-    <p class="note" style="margin-bottom:0;">
-      Leave a message, words of support, or anything you would like the family to see.
-      Comments are public and are hosted through GitHub. A GitHub account is required to post.
+    <p class="note">
+      Leave a public message for the family.
     </p>
 
-    <div class="comments-box" id="commentsBox">
+    <form class="community-form" id="commentForm">
+
+      <div class="community-field">
+        <label for="commentName">NAME (OPTIONAL)</label>
+        <input
+          id="commentName"
+          name="name"
+          maxlength="100"
+          autocomplete="name"
+        >
+      </div>
+
+      <div class="community-field">
+        <label for="commentMessage">YOUR MESSAGE</label>
+        <textarea
+          id="commentMessage"
+          name="message"
+          required
+          maxlength="1000"
+        ></textarea>
+      </div>
+
+      <button type="submit">Submit message</button>
+
+      <div
+        class="community-status"
+        id="commentStatus"
+        aria-live="polite"
+      ></div>
+
+    </form>
+
+    <div class="comment-list" id="commentList" aria-live="polite">
       <div class="comments-fallback">
-        Loading comments…
+        Loading messages…
       </div>
     </div>
 
@@ -1971,6 +2520,38 @@
 
 
   <!-- =====================================================
+       MODERATION
+       ===================================================== -->
+
+  <section class="admin-section" id="adminCard">
+
+    <div class="admin-access">
+
+      <button
+        type="button"
+        class="secondary"
+        id="adminAccessButton"
+      >
+        Admin sign-in
+      </button>
+
+      <div
+        class="community-status"
+        id="adminStatus"
+        aria-live="polite"
+      ></div>
+
+    </div>
+
+    <div class="admin-panel" id="adminPanel">
+      <div class="admin-list" id="adminList"></div>
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
        FOOTER
        ===================================================== -->
 
@@ -2000,7 +2581,121 @@
      QR CODE LIBRARY
      ===================================================== -->
 
+<!-- =====================================================
+     ENDORSEMENT FLOAT
+     ===================================================== -->
+
+<aside
+  class="endorsement-float"
+  id="endorsementFloat"
+  aria-label="Endorsements"
+>
+
+  <div class="ef-head">
+    <span class="ef-title">Endorsements</span>
+    <span class="ef-count" id="efCount"></span>
+  </div>
+
+  <div class="ef-viewport">
+    <div class="ef-track" id="efTrack">
+      <div class="ef-item ef-fallback">
+        Loading endorsements…
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="ef-cta-circle"
+    onclick="document.getElementById('endorseDialog').showModal()"
+  >
+    Endorse<br>the<br>cause
+  </button>
+
+</aside>
+
+
+<!-- =====================================================
+     ENDORSE DIALOG
+     ===================================================== -->
+
+<dialog id="endorseDialog">
+
+  <div class="dialog-header">
+    <h3>Endorse this appeal</h3>
+    <button
+      class="dialog-close"
+      onclick="document.getElementById('endorseDialog').close()"
+    >
+      &times;
+    </button>
+  </div>
+
+  <p class="community-prompt" style="margin-top:0;">
+    Add your name, designation, and organisation to stand
+    with Satyam’s family. New endorsements are reviewed
+    before they appear.
+  </p>
+
+  <form class="community-form" id="endorsementForm">
+
+    <div class="community-field">
+      <label for="endorsementName">NAME</label>
+      <input
+        id="endorsementName"
+        name="name"
+        required
+        maxlength="100"
+        autocomplete="name"
+      >
+    </div>
+
+    <div class="community-field">
+      <label for="endorsementDesignation">DESIGNATION</label>
+      <input
+        id="endorsementDesignation"
+        name="designation"
+        maxlength="120"
+        autocomplete="organization-title"
+      >
+    </div>
+
+    <div class="community-field">
+      <label for="endorsementOrganisation">ORGANISATION</label>
+      <input
+        id="endorsementOrganisation"
+        name="organisation"
+        maxlength="160"
+        autocomplete="organization"
+      >
+    </div>
+
+    <div class="community-field">
+      <label for="endorsementMessage">
+        MESSAGE (OPTIONAL)
+      </label>
+      <textarea
+        id="endorsementMessage"
+        name="message"
+        maxlength="500"
+      ></textarea>
+    </div>
+
+    <button type="submit">Submit endorsement</button>
+
+    <div
+      class="community-status"
+      id="endorsementStatus"
+      aria-live="polite"
+    ></div>
+
+  </form>
+
+</dialog>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 
@@ -2244,67 +2939,49 @@ Branch: ${branch}`;
 
 
   /* =====================================================
-     COMMENTS — UTTERANCES / GITHUB
+     COMMENTS — SUPABASE
      ===================================================== */
 
-  function getGitHubRepoFromPagesUrl() {
+  function displayComments(comments) {
+    const list = document.getElementById("commentList");
 
-    const host = window.location.hostname;
-    const pathParts =
-      window.location.pathname
-      .split("/")
-      .filter(Boolean);
-
-    if (host.endsWith(".github.io")) {
-      const owner = host.split(".")[0];
-      const repoName = pathParts[0] || "flood-relief";
-      return owner + "/" + repoName;
-    }
-
-    /* Fallback for a custom domain: change this if needed. */
-    return "YOUR_GITHUB_USERNAME/flood-relief";
-  }
-
-
-  function loadComments() {
-
-    const box =
-      document.getElementById("commentsBox");
-
-    const repo = getGitHubRepoFromPagesUrl();
-
-    if (repo.startsWith("YOUR_GITHUB_USERNAME/")) {
-      box.innerHTML = `
-        <div class="comments-fallback">
-          Comments need the GitHub repository name configured in
-          <code>getGitHubRepoFromPagesUrl()</code> before they can be displayed.
-        </div>
-      `;
+    if (!comments.length) {
+      list.innerHTML =
+        '<div class="comments-fallback">No public messages yet — be the first to leave one.</div>';
       return;
     }
 
-    const script =
-      document.createElement("script");
-
-    script.src =
-      "https://utteranc.es/client.js";
-
-    script.async = true;
-
-    script.crossOrigin = "anonymous";
-
-    script.setAttribute("repo", repo);
-
-    script.setAttribute("issue-term", "pathname");
-
-    script.setAttribute("theme", "github-light");
-
-    script.setAttribute("label", "comments");
-
-    box.innerHTML = "";
-
-    box.appendChild(script);
+    list.innerHTML = comments.map(item => `
+      <article class="comment-item">
+        <div class="comment-name">${escapeCommunityText(item.name || "Supporter")}</div>
+        <p class="comment-message">${escapeCommunityText(item.message)}</p>
+      </article>
+    `).join("");
   }
+
+  async function loadCommunityComments() {
+    /* comments publish instantly — hidden only after admin removal */
+    const { data, error } = await communityClient
+      .from("comments")
+      .select("name, message, created_at")
+      .in("status", ["pending", "approved"])
+      .order("created_at", { ascending: false })
+      .limit(30);
+
+    if (error) {
+      document.getElementById("commentList").innerHTML =
+        '<div class="comments-fallback">Messages will appear here.</div>';
+      return;
+    }
+
+    displayComments(data || []);
+  }
+
+  document
+    .getElementById("commentForm")
+    .addEventListener("submit", event =>
+      submitCommunityForm(event, "comments", "commentStatus")
+    );
 
 
   /* =====================================================
@@ -2320,6 +2997,351 @@ Branch: ${branch}`;
 
 
   /* =====================================================
+     ENDORSEMENTS — SUPABASE + CAROUSEL
+     ===================================================== */
+
+  const COMMUNITY_SUPABASE_URL = "https://jvrjanvnmjathuvimrdg.supabase.co";
+  const COMMUNITY_SUPABASE_KEY = "sb_publishable_CmnKftbaW3Kup0Cs1KZIrQ_wbeGWQWY";
+  const communityClient = window.supabase.createClient(
+    COMMUNITY_SUPABASE_URL,
+    COMMUNITY_SUPABASE_KEY
+  );
+
+  let efItems = [];
+  let efIndex = 0;
+  let efTimer;
+  const efDesktop = window.matchMedia("(min-width: 1250px)");
+  const EF_WINDOW_SIZE = 3;
+  const EF_ROW_HEIGHT = 114;
+  const EF_ROW_HEIGHT_MOBILE = 96;
+
+  function escapeCommunityText(value) {
+    return String(value || "").replace(/[&<>'"]/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "'": "&#39;",
+      '"': "&quot;"
+    })[char]);
+  }
+
+  /* window mode: a filled stack of five with a highlighted
+     centre, rotating as a circular queue (desktop, 5+) */
+  function efWindowMode() {
+    return efDesktop.matches && efItems.length >= EF_WINDOW_SIZE;
+  }
+
+  function efTransform(index) {
+    return efDesktop.matches
+      ? `translateY(${-index * EF_ROW_HEIGHT}px)`
+      : `translateX(${-index * EF_ROW_HEIGHT_MOBILE}px)`;
+  }
+
+  function efGo(index, animate) {
+    const track = document.getElementById("efTrack");
+    if (!track) return;
+    if (animate === false) track.classList.add("no-anim");
+    track.style.transform = efTransform(index);
+    if (animate === false) {
+      void track.offsetHeight;
+      track.classList.remove("no-anim");
+    }
+  }
+
+  function efUpdateActive() {
+    const slides = document.querySelectorAll("#efTrack .ef-item");
+    slides.forEach(slide => slide.classList.remove("ef-active"));
+    if (!slides.length) return;
+    /* centre row of the five-window, else the visible slide */
+    const position = efWindowMode()
+      ? efIndex + Math.floor(EF_WINDOW_SIZE / 2)
+      : Math.min(efIndex, slides.length - 1);
+    if (slides[position]) {
+      slides[position].classList.add("ef-active");
+    }
+  }
+
+  function efTick() {
+    efIndex += 1;
+    efGo(efIndex);
+    efUpdateActive();
+    if (efIndex === efItems.length) {
+      /* clones are now visible — snap back to the real
+         first item silently */
+      setTimeout(() => {
+        efIndex = 0;
+        efGo(0, false);
+        efUpdateActive();
+      }, 650);
+    }
+  }
+
+  function renderEndorsementTrack() {
+    const track = document.getElementById("efTrack");
+    const count = document.getElementById("efCount");
+    const float = document.getElementById("endorsementFloat");
+
+    if (!efItems.length) {
+      float.classList.remove("ef-window");
+      track.innerHTML =
+        '<div class="ef-item ef-fallback">Be the first to endorse this appeal.</div>';
+      count.textContent = "";
+      return;
+    }
+
+    const windowMode = efWindowMode();
+    float.classList.toggle("ef-window", windowMode);
+
+    const slides = windowMode
+      ? efItems.concat(efItems.slice(0, EF_WINDOW_SIZE))
+      : efItems.length > 1
+        ? efItems.concat(efItems[0])
+        : efItems;
+
+    track.innerHTML = slides.map(item => `
+      <div class="ef-item">
+        <div class="ef-name">${escapeCommunityText(item.name)}</div>
+        ${item.designation
+          ? `<div class="ef-desig">${escapeCommunityText(item.designation)}</div>`
+          : ""}
+        ${item.organisation
+          ? `<div class="ef-org">${escapeCommunityText(item.organisation)}</div>`
+          : ""}
+        ${!windowMode && item.message
+          ? `<div class="ef-msg">${escapeCommunityText(item.message)}</div>`
+          : ""}
+      </div>
+    `).join("");
+
+    count.textContent =
+      efItems.length > 1 ? `${efItems.length} supporters` : "";
+
+    efUpdateActive();
+  }
+
+  function startEndorsementRotation() {
+    clearInterval(efTimer);
+    const shouldRotate = efWindowMode()
+      ? efItems.length > EF_WINDOW_SIZE
+      : efItems.length > 1;
+    if (shouldRotate) {
+      efTimer = setInterval(efTick, 6000);
+    }
+  }
+
+  async function loadEndorsements() {
+
+    /* Preview the rotation with sample data by opening ?demo */
+    if (
+      new URLSearchParams(window.location.search).has("demo")
+    ) {
+      efItems = [
+        {
+          name: "Sample Endorser One",
+          designation: "Professor",
+          organisation: "IIT Roorkee",
+          message: "Sample endorsement for previewing the rotation."
+        },
+        {
+          name: "Sample Endorser Two",
+          designation: "Alumnus",
+          organisation: "JNV Saran",
+          message: "Second sample endorsement message."
+        },
+        {
+          name: "Sample Endorser Three",
+          designation: "ECE 2026",
+          organisation: "IIT Roorkee",
+          message: "Third sample endorsement message."
+        },
+        {
+          name: "Sample Endorser Four",
+          designation: "Dakshana Scholar",
+          organisation: "Dakshana Foundation",
+          message: "Fourth sample endorsement message."
+        },
+        {
+          name: "Sample Endorser Five",
+          designation: "Batchmate",
+          organisation: "IIT Roorkee",
+          message: "Fifth sample endorsement message."
+        },
+        {
+          name: "Sample Endorser Six",
+          designation: "Teacher",
+          organisation: "JNV Saran",
+          message: "Sixth sample endorsement message."
+        }
+      ];
+    } else {
+      const { data, error } = await communityClient
+        .from("endorsements")
+        .select("name, designation, organisation, message, created_at")
+        .eq("status", "approved")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        document.getElementById("efTrack").innerHTML =
+          '<div class="ef-item ef-fallback">Endorsements will appear here.</div>';
+        return;
+      }
+
+      efItems = data || [];
+    }
+
+    efIndex = 0;
+    renderEndorsementTrack();
+    efGo(0, false);
+    startEndorsementRotation();
+  }
+
+  async function submitCommunityForm(event, table, statusId) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const status = document.getElementById(statusId);
+    const values =
+      Object.fromEntries(new FormData(form).entries());
+    const isComment = table === "comments";
+
+    status.textContent = "Submitting…";
+
+    const { error } = await communityClient
+      .from(table)
+      .insert({ ...values, status: "pending" });
+
+    if (error) {
+      status.textContent =
+        "Unable to submit right now. Please try again shortly.";
+      return;
+    }
+
+    form.reset();
+    status.textContent = isComment
+      ? "Thank you. Your message is now public."
+      : "Thank you. Your endorsement will appear after approval.";
+
+    if (isComment) loadCommunityComments();
+  }
+
+
+  /* =====================================================
+     MODERATION — ADMIN
+     ===================================================== */
+
+  async function loadAdminQueue() {
+    const { data: sessionData } =
+      await communityClient.auth.getSession();
+    if (!sessionData.session) return;
+
+    const [endorsementResult, commentResult] = await Promise.all([
+      communityClient
+        .from("endorsements")
+        .select("id, name, designation, organisation, message")
+        .eq("status", "pending")
+        .order("created_at"),
+      communityClient
+        .from("comments")
+        .select("id, name, message")
+        .in("status", ["pending", "approved"])
+        .order("created_at", { ascending: false })
+        .limit(50)
+    ]);
+
+    if (endorsementResult.error || commentResult.error) return;
+
+    const items = [
+      ...(endorsementResult.data || []).map(item => ({
+        ...item,
+        type: "endorsements",
+        pending: true,
+        summary: `${item.name} — ${[item.designation, item.organisation].filter(Boolean).join(", ")}${item.message ? ` — ${item.message}` : ""}`
+      })),
+      ...(commentResult.data || []).map(item => ({
+        ...item,
+        type: "comments",
+        pending: false,
+        summary: `${item.name || "Supporter"}: ${item.message}`
+      }))
+    ];
+
+    document.getElementById("adminPanel").classList.add("open");
+    document.getElementById("adminList").innerHTML = items.length
+      ? items.map(item => `
+        <article class="admin-item">
+          <div class="admin-kind">${item.pending ? "Pending endorsement" : "Public comment"}</div>
+          <div class="comment-message">${escapeCommunityText(item.summary)}</div>
+          <div class="admin-actions">
+            ${item.pending
+              ? `<button type="button" onclick="moderateCommunityItem('${item.type}', '${item.id}', 'approved')">Approve</button>`
+              : ""}
+            <button type="button" class="secondary" onclick="moderateCommunityItem('${item.type}', '${item.id}', 'rejected')">${item.pending ? "Hide" : "Remove"}</button>
+          </div>
+        </article>
+      `).join("")
+      : '<div class="comments-fallback">Nothing to review right now.</div>';
+  }
+
+  async function moderateCommunityItem(table, id, status) {
+    const { error } = await communityClient
+      .from(table)
+      .update({ status })
+      .eq("id", id);
+
+    if (error) {
+      showToast("Unable to update right now.");
+      return;
+    }
+
+    await Promise.all([
+      loadEndorsements(),
+      loadCommunityComments(),
+      loadAdminQueue()
+    ]);
+  }
+
+  async function requestAdminAccess() {
+    const email =
+      window.prompt("Enter your approved admin email address:");
+    if (!email) return;
+
+    const status = document.getElementById("adminStatus");
+    status.textContent = "Sending sign-in link…";
+
+    const { error } = await communityClient.auth.signInWithOtp({
+      email: email.trim().toLowerCase(),
+      options: { emailRedirectTo: window.location.href }
+    });
+
+    status.textContent = error
+      ? "Unable to send the sign-in link."
+      : "Check your inbox for the admin sign-in link.";
+  }
+
+  document
+    .getElementById("adminAccessButton")
+    .addEventListener("click", requestAdminAccess);
+
+  document
+    .getElementById("endorsementForm")
+    .addEventListener("submit", event =>
+      submitCommunityForm(event, "endorsements", "endorsementStatus")
+    );
+
+  /* keep the transform correct across resizes / rotation */
+  efDesktop.addEventListener("change", () => {
+    efIndex = 0;
+    renderEndorsementTrack();
+    efGo(0, false);
+    startEndorsementRotation();
+  });
+
+  /* pause the rotation while hovered so visitors can read */
+  const efFloat = document.getElementById("endorsementFloat");
+  efFloat.addEventListener("mouseenter", () => clearInterval(efTimer));
+  efFloat.addEventListener("mouseleave", startEndorsementRotation);
+
+
+  /* =====================================================
      INITIALISE
      ===================================================== */
 
@@ -2331,7 +3353,11 @@ Branch: ${branch}`;
 
   createUpiQr("upiQr4", "upiId4");
 
-  loadComments();
+  loadCommunityComments();
+
+  loadEndorsements();
+
+  loadAdminQueue();
 
 </script>
 
