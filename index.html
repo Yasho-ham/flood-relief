@@ -162,6 +162,125 @@
       margin-top: 8px;
     }
 
+    .row.copyable {
+      cursor: pointer;
+      transition: background .15s ease;
+    }
+
+    .row.copyable:hover {
+      background: #eef2f7;
+    }
+
+    /* ================= TRANSFER GUIDES ================= */
+
+    .transfer-guides {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .guide-group {
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .guide-group summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .guide-group summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .guide-logo {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .guide-app {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .guide-chevron {
+      margin-left: auto;
+      color: #64748b;
+      font-size: 13px;
+      transition: transform .2s ease;
+    }
+
+    .guide-group[open] .guide-chevron {
+      transform: rotate(180deg);
+    }
+
+    .guide-group .guide-row {
+      padding: 0 14px 14px;
+    }
+
+    .guide-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .guide-row a {
+      flex: 0 0 auto;
+    }
+
+    .guide-row img {
+      display: block;
+      height: 320px;
+      width: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+    }
+
+    /* home video after transfer steps: phones only */
+    .home-video-mobile {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+
+      .loss-row .impact-photo.home-video-figure {
+        display: none;
+      }
+
+      .home-video-mobile {
+        display: block;
+        margin: 18px 0 0;
+      }
+
+      .home-video-mobile video {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #000000;
+      }
+
+      /* transfer guide steps stack vertically, in order */
+      .guide-row {
+        flex-direction: column;
+        overflow-x: visible;
+      }
+
+      .guide-row img {
+        height: auto;
+        width: 100%;
+      }
+
+    }
+
     .info {
       min-width: 0;
     }
@@ -1107,6 +1226,10 @@
       overflow-wrap: anywhere;
     }
 
+    .upi-small-id.tappable {
+      cursor: pointer;
+    }
+
     @media (max-width: 700px) {
 
       .impact-grid {
@@ -1428,7 +1551,7 @@
       </figure>
 
 
-      <figure class="impact-photo">
+      <figure class="impact-photo home-video-figure">
 
         <div class="home-video-wrap">
 
@@ -1517,6 +1640,10 @@
       beneficiary name displayed by your banking app
       before confirming the transfer.
 
+      <strong>
+        Tap any field to copy it.
+      </strong>
+
     </p>
 
 
@@ -1543,7 +1670,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('name1')">
 
           <div class="info">
 
@@ -1557,14 +1684,10 @@
 
           </div>
 
-          <button onclick="copyText('name1')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('bank1')">
 
           <div class="info">
 
@@ -1578,14 +1701,10 @@
 
           </div>
 
-          <button onclick="copyText('bank1')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('account1')">
 
           <div class="info">
 
@@ -1599,14 +1718,10 @@
 
           </div>
 
-          <button onclick="copyText('account1')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('ifsc1')">
 
           <div class="info">
 
@@ -1620,14 +1735,10 @@
 
           </div>
 
-          <button onclick="copyText('ifsc1')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('branch1')">
 
           <div class="info">
 
@@ -1641,11 +1752,7 @@
 
           </div>
 
-          <button onclick="copyText('branch1')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
         <button
@@ -1678,7 +1785,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('name2')">
 
           <div class="info">
 
@@ -1692,14 +1799,10 @@
 
           </div>
 
-          <button onclick="copyText('name2')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('bank2')">
 
           <div class="info">
 
@@ -1713,14 +1816,10 @@
 
           </div>
 
-          <button onclick="copyText('bank2')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('account2')">
 
           <div class="info">
 
@@ -1734,14 +1833,10 @@
 
           </div>
 
-          <button onclick="copyText('account2')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('ifsc2')">
 
           <div class="info">
 
@@ -1755,14 +1850,10 @@
 
           </div>
 
-          <button onclick="copyText('ifsc2')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
-        <div class="row">
+        <div class="row copyable" onclick="copyText('branch2')">
 
           <div class="info">
 
@@ -1776,11 +1867,7 @@
 
           </div>
 
-          <button onclick="copyText('branch2')">
-            Copy
-          </button>
-
-        </div>
+          </div>
 
 
         <button
@@ -1848,7 +1935,175 @@
 
     </ol>
 
+
+    <!-- ================= APP GUIDES ================= -->
+
+    <div class="transfer-guides">
+
+      <details class="guide-group">
+        <summary>
+          <img class="guide-logo" src="gpay-logo.png" alt="GPay logo">
+          <span class="guide-app">GPay</span>
+          <span class="guide-chevron">▾</span>
+        </summary>
+        <div class="guide-row">
+          <a
+            href="gpay-1.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="gpay-1.png"
+              alt="GPay: bank transfer steps"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      </details>
+
+      <details class="guide-group">
+        <summary>
+          <img class="guide-logo" src="paytm-logo.png" alt="Paytm logo">
+          <span class="guide-app">Paytm</span>
+          <span class="guide-chevron">▾</span>
+        </summary>
+        <div class="guide-row">
+          <a
+            href="paytm-1.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="paytm-1.png"
+              alt="Paytm: bank transfer step 1"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="paytm-2.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="paytm-2.png"
+              alt="Paytm: bank transfer step 2"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="paytm-3.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="paytm-3.png"
+              alt="Paytm: bank transfer step 3"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      </details>
+
+      <details class="guide-group">
+        <summary>
+          <img class="guide-logo" src="phonepe-logo.png" alt="PhonePe logo">
+          <span class="guide-app">PhonePe</span>
+          <span class="guide-chevron">▾</span>
+        </summary>
+        <div class="guide-row">
+          <a
+            href="phonepe-1.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="phonepe-1.png"
+              alt="PhonePe: bank transfer step 1"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="phonepe-2.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="phonepe-2.png"
+              alt="PhonePe: bank transfer step 2"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="phonepe-3.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="phonepe-3.png"
+              alt="PhonePe: bank transfer step 3"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="phonepe-4.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="phonepe-4.png"
+              alt="PhonePe: bank transfer step 4"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="phonepe-5.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="phonepe-5.png"
+              alt="PhonePe: bank transfer step 5"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      </details>
+
+    </div>
+
   </section>
+
+
+
+  <!-- =====================================================
+       HOME VIDEO — SHOWN AFTER TRANSFER STEPS ON PHONES
+       ===================================================== -->
+
+  <figure class="impact-photo home-video-mobile">
+
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+      preload="metadata"
+    >
+
+      <source
+        src="home-flood-video.mp4"
+        type="video/mp4"
+      >
+
+      Your browser does not support MP4 video playback.
+
+    </video>
+
+    <figcaption>
+      Our home, as the flood took it
+    </figcaption>
+
+  </figure>
 
 
 
@@ -1874,6 +2129,10 @@
       Because the receiving account has transaction-level
       limits for incoming UPI, many small payments can
       consume the available transaction count quickly.
+
+      <strong>
+        Tap a UPI ID to copy it.
+      </strong>
 
     </p>
 
@@ -1901,16 +2160,14 @@
         ></div>
 
         <span
-          class="upi-small-id"
+          class="upi-small-id tappable"
           id="upiId1"
+          onclick="copyText('upiId1')"
         >
-          i.vikas101-1@okicici
+          i.vikas101-1@oksbi
         </span>
 
         <div class="qr-actions">
-          <button onclick="copyText('upiId1')">
-            Copy UPI ID
-          </button>
 
           <button
             class="secondary"
@@ -1942,16 +2199,14 @@
         ></div>
 
         <span
-          class="upi-small-id"
+          class="upi-small-id tappable"
           id="upiId2"
+          onclick="copyText('upiId2')"
         >
           7003618060@ibl
         </span>
 
         <div class="qr-actions">
-          <button onclick="copyText('upiId2')">
-            Copy UPI ID
-          </button>
 
           <button
             class="secondary"
@@ -1983,16 +2238,14 @@
         ></div>
 
         <span
-          class="upi-small-id"
+          class="upi-small-id tappable"
           id="upiId3"
+          onclick="copyText('upiId3')"
         >
           satyamsks999000@oksbi
         </span>
 
         <div class="qr-actions">
-          <button onclick="copyText('upiId3')">
-            Copy UPI ID
-          </button>
 
           <button
             class="secondary"
@@ -2024,16 +2277,14 @@
         ></div>
 
         <span
-          class="upi-small-id"
+          class="upi-small-id tappable"
           id="upiId4"
+          onclick="copyText('upiId4')"
         >
           9631719340-2@ybl
         </span>
 
         <div class="qr-actions">
-          <button onclick="copyText('upiId4')">
-            Copy UPI ID
-          </button>
 
           <button
             class="secondary"
