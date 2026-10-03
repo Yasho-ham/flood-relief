@@ -574,7 +574,8 @@
     .impact-photo figcaption {
       padding: 11px 14px;
       font-size: 13px;
-      color: #64748b;
+      font-weight: 800;
+      color: #334155;
       text-align: center;
       border-top: 1px solid #e2e8f0;
     }
@@ -1240,10 +1241,10 @@
 
     .upi-qr-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin: 18px auto 12px;
-      max-width: 790px;
+      max-width: 690px;
     }
 
     .upi-qr-slot {
@@ -1264,6 +1265,15 @@
       color: #64748b;
       font-size: 11px;
       line-height: 1.4;
+    }
+
+    .upi-qr-slot p.upi-primary-tag {
+      display: inline-block;
+      background: #fef08a;
+      color: #713f12;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-weight: 800;
     }
 
     .upi-qr {
@@ -1686,7 +1696,7 @@
           UPI 1
         </h3>
 
-        <p>
+        <p class="upi-primary-tag">
           Primary UPI
         </p>
 
@@ -1739,7 +1749,7 @@
           id="upiId2"
           onclick="copyText('upiId2')"
         >
-          7003618060@ibl
+          satyamsks999000@oksbi
         </span>
 
         <div class="qr-actions">
@@ -1778,45 +1788,6 @@
           id="upiId3"
           onclick="copyText('upiId3')"
         >
-          satyamsks999000@oksbi
-        </span>
-
-        <div class="qr-actions">
-
-          <button
-            class="secondary"
-            onclick="downloadUpiQr(3)"
-          >
-            Download QR
-          </button>
-        </div>
-
-      </div>
-
-
-
-      <!-- ================= UPI QR 4 ================= -->
-
-      <div class="upi-qr-slot">
-
-        <h3>
-          UPI 4
-        </h3>
-
-        <p>
-          Alternative UPI
-        </p>
-
-        <div
-          class="upi-qr"
-          id="upiQr4"
-        ></div>
-
-        <span
-          class="upi-small-id tappable"
-          id="upiId4"
-          onclick="copyText('upiId4')"
-        >
           9631719340-2@ybl
         </span>
 
@@ -1824,7 +1795,7 @@
 
           <button
             class="secondary"
-            onclick="downloadUpiQr(4)"
+            onclick="downloadUpiQr(3)"
           >
             Download QR
           </button>
@@ -3784,8 +3755,6 @@ Branch: ${branch}`;
   createUpiQr("upiQr2", "upiId2");
 
   createUpiQr("upiQr3", "upiId3");
-
-  createUpiQr("upiQr4", "upiId4");
 
   loadCommunityComments();
 
