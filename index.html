@@ -82,36 +82,6 @@
 
     /* ================= PREFERRED ================= */
 
-    .preferred {
-      border: 1px solid #0f172a;
-      background: #0f172a;
-      color: #f8fafc;
-    }
-
-    .preferred h2 {
-      color: #ffffff;
-    }
-
-    .preferred .note {
-      color: #cbd5e1;
-    }
-
-    .preferred strong {
-      color: #ffffff;
-    }
-
-    .preferred-badge {
-      display: inline-block;
-      background: #16a34a;
-      color: #ffffff;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .05em;
-      margin-bottom: 10px;
-    }
-
     /* ================= BENEFICIARIES ================= */
 
     .beneficiaries {
@@ -1683,32 +1653,247 @@
 
 
   <!-- =====================================================
-       PAYMENT PREFERENCE
+       UPI FALLBACK
        ===================================================== -->
 
-  <section class="card preferred">
-
-    <span class="preferred-badge">
-      ✓ RECOMMENDED
-    </span>
+  <section class="card upi-card">
 
     <h2>
-      Please Prefer Bank Transfer
+      UPI
     </h2>
 
-    <p class="note" style="margin-bottom:0">
+    <p class="note">
 
-      <strong>
-        Please use one of the two bank accounts below first.
-      </strong>
+      Scan any QR below with your UPI app.
 
-      NEFT / IMPS / RTGS are preferred, especially for larger
-      contributions.
-
-      Please use UPI only if both bank-transfer options
-      are unavailable or do not work for you.
+      <span style="color:#15803d;">
+        Tap a UPI ID to copy it.
+      </span>
 
     </p>
+
+
+    <!-- ================= THREE UPI QRS ================= -->
+
+    <div class="upi-qr-grid">
+
+
+      <!-- ================= UPI QR 1 ================= -->
+
+      <div class="upi-qr-slot">
+
+        <h3>
+          UPI 1
+        </h3>
+
+        <p>
+          Primary UPI
+        </p>
+
+        <div
+          class="upi-qr"
+          id="upiQr1"
+        ></div>
+
+        <span
+          class="upi-small-id tappable"
+          id="upiId1"
+          onclick="copyText('upiId1')"
+        >
+          q320650492@ybl
+        </span>
+
+        <div class="qr-actions">
+
+          <button
+            class="secondary"
+            onclick="downloadUpiQr(1)"
+          >
+            Download QR
+          </button>
+        </div>
+
+      </div>
+
+
+
+      <!-- ================= UPI QR 2 ================= -->
+
+      <div class="upi-qr-slot">
+
+        <h3>
+          UPI 2
+        </h3>
+
+        <p>
+          Alternative UPI
+        </p>
+
+        <div
+          class="upi-qr"
+          id="upiQr2"
+        ></div>
+
+        <span
+          class="upi-small-id tappable"
+          id="upiId2"
+          onclick="copyText('upiId2')"
+        >
+          7003618060@ibl
+        </span>
+
+        <div class="qr-actions">
+
+          <button
+            class="secondary"
+            onclick="downloadUpiQr(2)"
+          >
+            Download QR
+          </button>
+        </div>
+
+      </div>
+
+
+
+      <!-- ================= UPI QR 3 ================= -->
+
+      <div class="upi-qr-slot">
+
+        <h3>
+          UPI 3
+        </h3>
+
+        <p>
+          Alternative UPI
+        </p>
+
+        <div
+          class="upi-qr"
+          id="upiQr3"
+        ></div>
+
+        <span
+          class="upi-small-id tappable"
+          id="upiId3"
+          onclick="copyText('upiId3')"
+        >
+          satyamsks999000@oksbi
+        </span>
+
+        <div class="qr-actions">
+
+          <button
+            class="secondary"
+            onclick="downloadUpiQr(3)"
+          >
+            Download QR
+          </button>
+        </div>
+
+      </div>
+
+
+
+      <!-- ================= UPI QR 4 ================= -->
+
+      <div class="upi-qr-slot">
+
+        <h3>
+          UPI 4
+        </h3>
+
+        <p>
+          Alternative UPI
+        </p>
+
+        <div
+          class="upi-qr"
+          id="upiQr4"
+        ></div>
+
+        <span
+          class="upi-small-id tappable"
+          id="upiId4"
+          onclick="copyText('upiId4')"
+        >
+          9631719340-2@ybl
+        </span>
+
+        <div class="qr-actions">
+
+          <button
+            class="secondary"
+            onclick="downloadUpiQr(4)"
+          >
+            Download QR
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ================= LIMIT ================= -->
+
+    <!-- <div class="limit-box">
+
+      <strong>
+        Why bank transfer is preferred
+      </strong>
+
+      <p>
+
+        HDFC currently states that incoming
+        UPI Person-to-Person (P2P) payments can have up to
+        <strong>
+          50 successful inward transactions
+        </strong>
+        in a rolling 24-hour period.
+
+      </p>
+
+      <p>
+
+        For incoming P2P payments
+        <strong>above ₹2,000</strong>,
+        HDFC states an additional limit of:
+
+        <strong>
+          25 transactions OR ₹4 lakh total
+        </strong>
+
+        in the rolling 24-hour period,
+
+        whichever is reached first.
+
+      </p>
+
+      <p>
+
+        Payments below ₹2,000 still count toward the
+        overall 50-inward-transaction limit.
+
+      </p>
+
+      <p>
+
+        These limits are applied at the
+        <strong>account level</strong>.
+
+      </p>
+
+      <div class="source">
+
+        Limit information:
+        HDFC Bank's published UPI P2P Inward Limit guidance.
+
+      </div>
+
+    </div> -->
+
 
   </section>
 
@@ -2199,277 +2384,6 @@
     </figcaption>
 
   </figure>
-
-
-
-  <!-- =====================================================
-       UPI FALLBACK
-       ===================================================== -->
-
-  <section class="card upi-card">
-
-    <div class="fallback">
-      USE UPI ONLY IF BANK TRANSFER DOESN'T WORK
-    </div>
-
-    <h2 style="margin-top:14px;">
-      UPI
-    </h2>
-
-    <p class="note">
-
-      Please use this UPI option only when neither of the
-      two bank-transfer options above works for you.
-
-      Because the receiving account has transaction-level
-      limits for incoming UPI, many small payments can
-      consume the available transaction count quickly.
-
-      <span style="color:#15803d;">
-        Tap a UPI ID to copy it.
-      </span>
-
-    </p>
-
-
-    <!-- ================= THREE UPI QRS ================= -->
-
-    <div class="upi-qr-grid">
-
-
-      <!-- ================= UPI QR 1 ================= -->
-
-      <div class="upi-qr-slot">
-
-        <h3>
-          UPI 1
-        </h3>
-
-        <p>
-          Primary UPI
-        </p>
-
-        <div
-          class="upi-qr"
-          id="upiQr1"
-        ></div>
-
-        <span
-          class="upi-small-id tappable"
-          id="upiId1"
-          onclick="copyText('upiId1')"
-        >
-          q320650492@ybl
-        </span>
-
-        <div class="qr-actions">
-
-          <button
-            class="secondary"
-            onclick="downloadUpiQr(1)"
-          >
-            Download QR
-          </button>
-        </div>
-
-      </div>
-
-
-
-      <!-- ================= UPI QR 2 ================= -->
-
-      <div class="upi-qr-slot">
-
-        <h3>
-          UPI 2
-        </h3>
-
-        <p>
-          Alternative UPI
-        </p>
-
-        <div
-          class="upi-qr"
-          id="upiQr2"
-        ></div>
-
-        <span
-          class="upi-small-id tappable"
-          id="upiId2"
-          onclick="copyText('upiId2')"
-        >
-          7003618060@ibl
-        </span>
-
-        <div class="qr-actions">
-
-          <button
-            class="secondary"
-            onclick="downloadUpiQr(2)"
-          >
-            Download QR
-          </button>
-        </div>
-
-      </div>
-
-
-
-      <!-- ================= UPI QR 3 ================= -->
-
-      <div class="upi-qr-slot">
-
-        <h3>
-          UPI 3
-        </h3>
-
-        <p>
-          Alternative UPI
-        </p>
-
-        <div
-          class="upi-qr"
-          id="upiQr3"
-        ></div>
-
-        <span
-          class="upi-small-id tappable"
-          id="upiId3"
-          onclick="copyText('upiId3')"
-        >
-          satyamsks999000@oksbi
-        </span>
-
-        <div class="qr-actions">
-
-          <button
-            class="secondary"
-            onclick="downloadUpiQr(3)"
-          >
-            Download QR
-          </button>
-        </div>
-
-      </div>
-
-
-
-      <!-- ================= UPI QR 4 ================= -->
-
-      <div class="upi-qr-slot">
-
-        <h3>
-          UPI 4
-        </h3>
-
-        <p>
-          Alternative UPI
-        </p>
-
-        <div
-          class="upi-qr"
-          id="upiQr4"
-        ></div>
-
-        <span
-          class="upi-small-id tappable"
-          id="upiId4"
-          onclick="copyText('upiId4')"
-        >
-          9631719340-2@ybl
-        </span>
-
-        <div class="qr-actions">
-
-          <button
-            class="secondary"
-            onclick="downloadUpiQr(4)"
-          >
-            Download QR
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- ================= LIMIT ================= -->
-
-    <!-- <div class="limit-box">
-
-      <strong>
-        Why bank transfer is preferred
-      </strong>
-
-      <p>
-
-        HDFC currently states that incoming
-        UPI Person-to-Person (P2P) payments can have up to
-        <strong>
-          50 successful inward transactions
-        </strong>
-        in a rolling 24-hour period.
-
-      </p>
-
-      <p>
-
-        For incoming P2P payments
-        <strong>above ₹2,000</strong>,
-        HDFC states an additional limit of:
-
-        <strong>
-          25 transactions OR ₹4 lakh total
-        </strong>
-
-        in the rolling 24-hour period,
-
-        whichever is reached first.
-
-      </p>
-
-      <p>
-
-        Payments below ₹2,000 still count toward the
-        overall 50-inward-transaction limit.
-
-      </p>
-
-      <p>
-
-        These limits are applied at the
-        <strong>account level</strong>.
-
-      </p>
-
-      <div class="source">
-
-        Limit information:
-        HDFC Bank's published UPI P2P Inward Limit guidance.
-
-      </div>
-
-    </div> -->
-
-
-    <p
-      class="note"
-      style="margin-bottom:0;"
-    >
-
-      For a fundraiser targeting ₹15–20 lakh,
-      <strong>
-        NEFT / IMPS / RTGS should remain the preferred payment method.
-      </strong>
-
-      Please use these UPI options only if the bank-transfer
-      options above are unavailable or fail for you.
-
-    </p>
-
-  </section>
 
 
 
