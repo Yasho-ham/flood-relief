@@ -757,6 +757,73 @@
       color: #0f172a;
     }
 
+    .ef-item {
+      position: relative;
+      transition: transform .25s ease;
+    }
+
+    .ef-viewall {
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: #475569;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .all-endorsements-list {
+      display: grid;
+      gap: 10px;
+      max-height: 55vh;
+      overflow-y: auto;
+    }
+
+    .all-ef-role {
+      margin-top: 2px;
+      color: #64748b;
+      font-size: 11px;
+    }
+
+    /* attached message popup */
+    .ef-pop {
+      position: fixed;
+      z-index: 200;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, .22);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .15s ease;
+      max-width: 260px;
+    }
+
+    .ef-pop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .ef-pop-name {
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .ef-pop-role {
+      margin-top: 2px;
+      color: #64748b;
+      font-size: 11px;
+    }
+
+    .ef-pop-msg {
+      margin: 7px 0 0;
+      color: #475569;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
     /* laptop: floating light capsule with circles */
     @media (min-width: 1250px) {
 
@@ -797,19 +864,21 @@
       }
 
       .ef-viewport {
-        width: 104px;
+        width: 124px;
         height: 104px;
+        margin: 0 -10px;
       }
 
       .ef-window .ef-viewport {
-        height: 332px;
+        height: 344px;
       }
 
       .ef-track {
         flex-direction: column;
         height: auto;
-        gap: 10px;
-        width: 104px;
+        gap: 16px;
+        width: 100%;
+        align-items: center;
       }
 
       .ef-item {
@@ -893,6 +962,19 @@
 
       .ef-cta-circle:hover {
         background: #1e293b;
+      }
+
+      /* hovered / tapped circle grows without spilling the track */
+      .ef-item.ef-hovering {
+        transform: scale(1.15);
+        z-index: 5;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, .22);
+      }
+
+      .ef-viewall {
+        width: 100%;
+        padding: 7px;
+        margin-top: 8px;
       }
 
     }
@@ -1030,6 +1112,17 @@
         padding: 8px;
         background: #0f172a;
         color: #ffffff;
+      }
+
+      .ef-item.ef-hovering {
+        transform: scale(1.04);
+        z-index: 5;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, .22);
+      }
+
+      .ef-viewall {
+        padding: 8px 10px;
+        flex: 0 0 auto;
       }
 
     }
@@ -1640,9 +1733,9 @@
       beneficiary name displayed by your banking app
       before confirming the transfer.
 
-      <strong>
+      <span style="color:#15803d;">
         Tap any field to copy it.
-      </strong>
+      </span>
 
     </p>
 
@@ -1942,70 +2035,6 @@
 
       <details class="guide-group">
         <summary>
-          <img class="guide-logo" src="gpay-logo.png" alt="GPay logo">
-          <span class="guide-app">GPay</span>
-          <span class="guide-chevron">▾</span>
-        </summary>
-        <div class="guide-row">
-          <a
-            href="gpay-1.png"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="gpay-1.png"
-              alt="GPay: bank transfer steps"
-              loading="lazy"
-            >
-          </a>
-        </div>
-      </details>
-
-      <details class="guide-group">
-        <summary>
-          <img class="guide-logo" src="paytm-logo.png" alt="Paytm logo">
-          <span class="guide-app">Paytm</span>
-          <span class="guide-chevron">▾</span>
-        </summary>
-        <div class="guide-row">
-          <a
-            href="paytm-1.png"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="paytm-1.png"
-              alt="Paytm: bank transfer step 1"
-              loading="lazy"
-            >
-          </a>
-          <a
-            href="paytm-2.png"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="paytm-2.png"
-              alt="Paytm: bank transfer step 2"
-              loading="lazy"
-            >
-          </a>
-          <a
-            href="paytm-3.png"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="paytm-3.png"
-              alt="Paytm: bank transfer step 3"
-              loading="lazy"
-            >
-          </a>
-        </div>
-      </details>
-
-      <details class="guide-group">
-        <summary>
           <img class="guide-logo" src="phonepe-logo.png" alt="PhonePe logo">
           <span class="guide-app">PhonePe</span>
           <span class="guide-chevron">▾</span>
@@ -2069,6 +2098,72 @@
         </div>
       </details>
 
+      <details class="guide-group">
+        <summary>
+          <img class="guide-logo" src="gpay-logo.png" alt="GPay logo">
+          <span class="guide-app">GPay</span>
+          <span class="guide-chevron">▾</span>
+        </summary>
+        <div class="guide-row">
+          <a
+            href="gpay-1.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="gpay-1.png"
+              alt="GPay: bank transfer steps"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      </details>
+
+      <details class="guide-group">
+        <summary>
+          <img class="guide-logo" src="paytm-logo.png" alt="Paytm logo">
+          <span class="guide-app">Paytm</span>
+          <span class="guide-chevron">▾</span>
+        </summary>
+        <div class="guide-row">
+          <a
+            href="paytm-1.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="paytm-1.png"
+              alt="Paytm: bank transfer step 1"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="paytm-2.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="paytm-2.png"
+              alt="Paytm: bank transfer step 2"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="paytm-3.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="paytm-3.png"
+              alt="Paytm: bank transfer step 3"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      </details>
+
+
+
     </div>
 
   </section>
@@ -2130,9 +2225,9 @@
       limits for incoming UPI, many small payments can
       consume the available transaction count quickly.
 
-      <strong>
+      <span style="color:#15803d;">
         Tap a UPI ID to copy it.
-      </strong>
+      </span>
 
     </p>
 
@@ -2203,7 +2298,7 @@
           id="upiId2"
           onclick="copyText('upiId2')"
         >
-          9631988015@ibl
+          7003618060@ibl
         </span>
 
         <div class="qr-actions">
@@ -2281,7 +2376,7 @@
           id="upiId4"
           onclick="copyText('upiId4')"
         >
-          9631719340@idfcfirst
+          9631719340-2@ybl
         </span>
 
         <div class="qr-actions">
@@ -2364,7 +2459,7 @@
       style="margin-bottom:0;"
     >
 
-      For a fundraiser targeting ₹5–20 lakh,
+      For a fundraiser targeting ₹15–20 lakh,
       <strong>
         NEFT / IMPS / RTGS should remain the preferred payment method.
       </strong>
@@ -2734,7 +2829,7 @@
     <p>
 
       We are aiming to raise approximately
-      <strong>₹5–20 lakh</strong>
+      <strong>₹15–20 lakh</strong>
       to help our family recover from the flood
       and rebuild.
 
@@ -2866,6 +2961,13 @@
   </div>
 
   <button
+    class="ef-viewall"
+    onclick="openAllEndorsements()"
+  >
+    View all
+  </button>
+
+  <button
     class="ef-cta-circle"
     onclick="document.getElementById('endorseDialog').showModal()"
   >
@@ -2878,6 +2980,30 @@
 <!-- =====================================================
      ENDORSE DIALOG
      ===================================================== -->
+
+<!-- =====================================================
+     ALL ENDORSEMENTS DIALOG
+     ===================================================== -->
+
+<dialog id="allEndorsementsDialog">
+
+  <div class="dialog-header">
+    <h3>All endorsements</h3>
+    <button
+      class="dialog-close"
+      onclick="document.getElementById('allEndorsementsDialog').close()"
+    >
+      &times;
+    </button>
+  </div>
+
+  <div
+    class="all-endorsements-list"
+    id="allEndorsementsList"
+  ></div>
+
+</dialog>
+
 
 <dialog id="endorseDialog">
 
@@ -3273,7 +3399,7 @@ Branch: ${branch}`;
   let efTimer;
   const efDesktop = window.matchMedia("(min-width: 1250px)");
   const EF_WINDOW_SIZE = 3;
-  const EF_ROW_HEIGHT = 114;
+  const EF_ROW_HEIGHT = 120;
   const EF_ROW_HEIGHT_MOBILE = 96;
 
   function escapeCommunityText(value) {
@@ -3342,6 +3468,8 @@ Branch: ${branch}`;
     const count = document.getElementById("efCount");
     const float = document.getElementById("endorsementFloat");
 
+    if (typeof efHidePop === "function") efHidePop();
+
     if (!efItems.length) {
       float.classList.remove("ef-window");
       track.innerHTML =
@@ -3368,7 +3496,7 @@ Branch: ${branch}`;
         ${item.organisation
           ? `<div class="ef-org">${escapeCommunityText(item.organisation)}</div>`
           : ""}
-        ${!windowMode && item.message
+        ${item.message
           ? `<div class="ef-msg">${escapeCommunityText(item.message)}</div>`
           : ""}
       </div>
@@ -3599,8 +3727,139 @@ Branch: ${branch}`;
   /* pause the rotation while hovered so visitors can read */
   const efFloat = document.getElementById("endorsementFloat");
   efFloat.addEventListener("mouseenter", () => clearInterval(efTimer));
-  efFloat.addEventListener("mouseleave", startEndorsementRotation);
+  efFloat.addEventListener("mouseleave", () => {
+    efHidePop();
+    startEndorsementRotation();
+  });
 
+  /* attached message popup — hover on laptop, tap on phone */
+  const efPop = document.createElement("div");
+  efPop.className = "ef-pop";
+  document.body.appendChild(efPop);
+
+  let efPopFor = null;
+
+  function efHidePop() {
+    efPop.classList.remove("open");
+    if (efPopFor) {
+      efPopFor.classList.remove("ef-hovering");
+      efPopFor = null;
+    }
+  }
+
+  function efShowPop(item) {
+    const msg = item.querySelector(".ef-msg");
+    if (!msg || !msg.textContent.trim()) return false;
+
+    const name = item.querySelector(".ef-name");
+    const desig = item.querySelector(".ef-desig");
+    const org = item.querySelector(".ef-org");
+
+    efPop.innerHTML = `
+      <div class="ef-pop-name">${name ? name.innerHTML : ""}</div>
+      <div class="ef-pop-role">${escapeCommunityText(
+        [desig && desig.textContent, org && org.textContent]
+          .filter(Boolean)
+          .join(" · ")
+      )}</div>
+      <p class="ef-pop-msg">${msg.innerHTML}</p>
+    `;
+
+    efHidePop();
+    efPopFor = item;
+    item.classList.add("ef-hovering");
+
+    const rect = item.getBoundingClientRect();
+    efPop.classList.add("open");
+
+    const popWidth = Math.min(260, window.innerWidth - 24);
+    efPop.style.width = popWidth + "px";
+    const popRect = efPop.getBoundingClientRect();
+
+    let left;
+    let top;
+    if (efDesktop.matches) {
+      left = rect.right + 12;
+      if (left + popWidth > window.innerWidth - 12) {
+        left = rect.left - popWidth - 12;
+      }
+      top = rect.top + rect.height / 2 - popRect.height / 2;
+    } else {
+      left = (window.innerWidth - popWidth) / 2;
+      top = rect.top - popRect.height - 12;
+      if (top < 12) top = rect.bottom + 12;
+    }
+    left = Math.max(12, left);
+    top = Math.max(12, Math.min(top, window.innerHeight - popRect.height - 12));
+
+    efPop.style.left = left + "px";
+    efPop.style.top = top + "px";
+    return true;
+  }
+
+  const efTrackEl = document.getElementById("efTrack");
+
+  /* laptop: hover a circle → message pops up beside it */
+  efTrackEl.addEventListener("mouseover", event => {
+    if (!efDesktop.matches) return;
+    const item = event.target.closest(".ef-item");
+    if (!item || item.classList.contains("ef-fallback")) return;
+    if (item === efPopFor) return;
+    efShowPop(item);
+  });
+
+  efTrackEl.addEventListener("mouseout", event => {
+    if (!efDesktop.matches) return;
+    const item = event.target.closest(".ef-item");
+    if (!item || item !== efPopFor) return;
+    if (event.relatedTarget && efPop.contains(event.relatedTarget)) return;
+    efHidePop();
+  });
+
+  efPop.addEventListener("mouseleave", efHidePop);
+
+  /* phone: tap a circle → message pops up above it */
+  efTrackEl.addEventListener("click", event => {
+    if (efDesktop.matches) return;
+    const item = event.target.closest(".ef-item");
+    if (!item || item.classList.contains("ef-fallback")) return;
+
+    if (item === efPopFor) {
+      efHidePop();
+      startEndorsementRotation();
+      return;
+    }
+
+    if (efShowPop(item)) {
+      clearInterval(efTimer);
+    }
+  });
+
+  /* view-all dialog: every endorsement with its message */
+  function openAllEndorsements() {
+    const list = document.getElementById("allEndorsementsList");
+
+    if (!efItems.length) {
+      list.innerHTML =
+        '<div class="comments-fallback">No endorsements yet — be the first.</div>';
+    } else {
+      list.innerHTML = efItems.map(item => `
+        <article class="comment-item">
+          <div class="comment-name">${escapeCommunityText(item.name)}</div>
+          <div class="all-ef-role">${escapeCommunityText(
+            [item.designation, item.organisation]
+              .filter(Boolean)
+              .join(" · ")
+          )}</div>
+          ${item.message
+            ? `<p class="comment-message">${escapeCommunityText(item.message)}</p>`
+            : ""}
+        </article>
+      `).join("");
+    }
+
+    document.getElementById("allEndorsementsDialog").showModal();
+  }
 
   /* =====================================================
      INITIALISE
