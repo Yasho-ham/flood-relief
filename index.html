@@ -3160,12 +3160,6 @@ Branch: ${branch}`;
 
   function downloadUpiQr(number) {
 
-    const qrElement =
-      document.getElementById("upiQr" + number);
-
-    const image = qrElement.querySelector("img");
-    const canvas = qrElement.querySelector("canvas");
-
     const upiId =
       document
       .getElementById("upiId" + number)
@@ -3177,36 +3171,69 @@ Branch: ${branch}`;
       return;
     }
 
-    const filename =
-      "upi-qr-" + number + "-" +
-      upiId.replace(/[^a-zA-Z0-9@._-]/g, "_") +
-      ".png";
+    const upiUri =
+      "upi://pay" +
+      "?pa=" + encodeURIComponent(upiId) +
+      "&pn=" + encodeURIComponent("Flood Relief Support") +
+      "&cu=INR";
 
-    const link = document.createElement("a");
-    link.download = filename;
+    /*
+      Render a fresh high-resolution QR for the download —
+      the on-screen 175px QR is too small for payment apps
+      to scan reliably. JPEG on a white background so Paytm
+      accepts it too.
+    */
+    const temp = document.createElement("div");
 
-    if (canvas) {
-      link.href = canvas.toDataURL("image/png");
+    new QRCode(temp, {
+      text: upiUri,
+      width: 1024,
+      height: 1024,
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    const source =
+      temp.querySelector("canvas") || temp.querySelector("img");
+
+    if (!source) {
+      showToast("QR is not ready yet");
+      return;
+    }
+
+    const canvas = document.createElement("canvas");
+    const QR_SIZE = 1024;
+    const QR_BORDER = 128;
+    canvas.width = QR_SIZE + QR_BORDER * 2;
+    canvas.height = QR_SIZE + QR_BORDER * 2;
+
+    const context = canvas.getContext("2d");
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    const save = function () {
+      const filename =
+        "upi-qr-" + number + "-" +
+        upiId.replace(/[^a-zA-Z0-9@._-]/g, "_") +
+        ".jpg";
+
+      const link = document.createElement("a");
+      link.download = filename;
+      link.href = canvas.toDataURL("image/jpeg", 0.95);
       link.click();
+    };
+
+    if (source.tagName === "CANVAS") {
+      context.drawImage(source, QR_BORDER, QR_BORDER, QR_SIZE, QR_SIZE);
+      save();
       return;
     }
 
-    if (image) {
-      fetch(image.src)
-        .then(response => response.blob())
-        .then(blob => {
-          link.href = URL.createObjectURL(blob);
-          link.click();
-          setTimeout(() => URL.revokeObjectURL(link.href), 1000);
-        })
-        .catch(() => {
-          /* Fallback: open the QR image if download is blocked. */
-          window.open(image.src, "_blank", "noopener,noreferrer");
-        });
-      return;
-    }
-
-    showToast("QR is not ready yet");
+    const fullImage = new Image();
+    fullImage.onload = function () {
+      context.drawImage(fullImage, QR_BORDER, QR_BORDER, QR_SIZE, QR_SIZE);
+      save();
+    };
+    fullImage.src = source.src;
   }
 
 
